@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepShare 跳转测试页面</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <style type="text/css">
+    .btn {
+      margin-top: 5px;
+    }
+    .row {
+      margin-bottom: 30px;
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <div class="row col-lg-6 col-lg-offset-1">
+      <h2>DeepShare跳转测试页面</h2>
+      <p class="text-info">请在手机上访问此页面</p>
+    </div>
+    <section>
+      <div class="row col-lg-6 col-lg-offset-1">
+        <h4>appid</h4>
+        <input id="appid" class="form-control" placeholder="请输入需要生成链接的APPID">
+        <!--
+        <h4>param</h4>
+        <input id="param" class="form-control" placeholder='{"inapp_data": {"name":"mkdir"}}'>
+        -->
+        <h4>跳转链接</h4>
+        <input class="form-control dslink">
+      </div>
+    </section>
+    <section>
+      <div class="row col-lg-6 col-lg-offset-1">
+        <div class="group">
+          <button id="genurl" class="btn btn-info hide">生成链接</button>
+          <button id="openurl" class="btn btn-info">跳转:下载/打开APP</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+
+    function generateUrl(){
+        var appid = $('#appid').val();
+        if (!appid) {
+            alert('请在输入appid'); 
+            return;
+        }
+        var params = {};
+
+        $.ajax({
+            url: 'https://fds.so/v2/url/' + appid,
+            type: 'POST',
+            data: JSON.stringify(params),
+            xhrFields: {withCredentials: true,},
+            beforeSend: function() {
+                $('.dslink').val('正在生成链接...');
+            },
+            success: function(result) {
+                $('.dslink').val(result.url);
+                deepshareurl = result.url;
+            },
+            error: function() {
+                $('.dslink').val('出错啦, 重刷页面试试');
+            },
+        });
+    }
+
+    var deepshareurl = null;
+
+    $('#appid').val(getParameterByName('appid') || '');
+    if (!$('#appid').val()) {
+        $('#genurl').removeClass('hide');
+    } else {
+        generateUrl();
+    }
+
+    $('#genurl').click(function() {
+        generateUrl();
+    });
+
+    $('#openurl').click(function() {
+        if (deepshareurl) {
+            location.href = deepshareurl;
+        } else {
+            alert('链接未生成，请稍等或刷新页面');
+        }
+    });
+
+</script>
+</body>
+</html>

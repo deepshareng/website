@@ -1,0 +1,20 @@
+- icon: /img/feature4-icon.png
+  title: 开腔 - 热点资讯平台
+  desc: 一键参与热门讨论<br>直达兴趣内容，直接提升社区活动热度
+  image: /img/demo/demo-kaiqiang.png
+  qrcode: /img/demo/qrcode-kaiqiang.png
+- icon: /img/feature2-icon.png
+  title: 听果 - 听书APP
+  desc: 直达具体的音频页面<br>无需用户查找，自动下载播放分享音频
+  image: /img/demo/demo-tinguo.png
+  qrcode: /img/demo/qrcode-tinguo.png
+- icon: /img/feature1-icon.png
+  title: 墨池 - 书法社交APP
+  desc: 将用户直接导向APP内容页面<br>提高用户点赞、评论的活跃度
+  image: /img/demo/demo-mochi.png
+  qrcode: /img/demo/qrcode-mochi.png
+- icon: /img/feature3-icon.png
+  title: XY - 男士精选海淘电商
+  desc: 从Web分享页面点击单品后直达APP内购买页面<br> 省去搜索的流程，提高了APP中购买转化率
+  image: /img/demo/demo-xy.png
+  qrcode: /img/demo/qrcode-xy.png

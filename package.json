@@ -1,0 +1,23 @@
+{
+  "name": "deepshare_website",
+  "version": "1.0.0",
+  "description": "## To upload sdk file to azure storage",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MISingularity/deepshare_website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MISingularity/deepshare_website/issues"
+  },
+  "homepage": "https://github.com/MISingularity/deepshare_website#readme"
+}

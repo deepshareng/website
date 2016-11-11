@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>战略联盟</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <div class="nav-offset" style="height: 32px"></div>
+        <div class="blog-bg">
+            <div class="blog-top">
+                <!-- Banner -->
+<script type="text/javascript">
+var BANNER_SCROLL_TIMEOUT = null;
+$(function(){
+    var banner = $("#blog-banner");
+    if(!banner.length){
+        return;
+    }
+    var posts = banner.find(".posts");
+    var dots = banner.find(".dots");
+    var doc = $(document);
+    var win = $(window);
+    var scrollToPost = function(index, skip){
+        var selected = dots.find(".dot.selected").index() || 0;
+        index = index || 0;
+        if(selected === index){
+            return;
+        }
+        dots.find(".dot").removeClass("selected");
+        dots.find(".dot").eq(index).addClass("selected");
+        var last = posts.find(".post").eq(selected);
+        var post = posts.find(".post").eq(index);
+        if(skip){
+            last.hide();
+            post.show();
+        }else{
+            last.fadeOut();
+            post.fadeIn();
+        }
+        $(window).trigger("resize.banner");
+        window.clearTimeout(BANNER_SCROLL_TIMEOUT);
+        BANNER_SCROLL_TIMEOUT = window.setTimeout(function(){
+            scrollToPost(index + 1 < dots.find(".dot").length ? index + 1 : 0);
+        }, 5000);
+    };
+    dots.find(".dot").click(function(){
+        console.log('click');
+        scrollToPost($(this).index());
+    });
+    scrollToPost(0, true);
+});
+</script>
+<div id="blog-banner">
+    <div class="posts">
+         
+        
+        <div class="post" style="display: none;">
+        
+            <div class="bg" style="background-image:url('https://ds-static.fds.so/image/blog/dsp-head.jpg');"></div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <a class="title" href="/2016/08/09/dsp/">如何高效如何高效利用移动互联网DSP广告为APP增加流量</a>
+                    <span class="author"><span class="post-date"><time datetime="2016-08-09T00:00:00+08:00">09 August, 2016</time></span>&nbsp;&nbsp;•&nbsp;&nbsp;deepshare</span>
+                    <div class="tags">
+                        
+                        |<a class="tag" href="/blog/tags/增长联盟">#增长联盟</a>
+                        |
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+        
+        <div class="post" style="display: none;">
+        
+            <div class="bg" style="background-image:url('/img/cover-2016-7-23-deeplink-google-apple.jpg');"></div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <a class="title" href="/2016/07/23/deeplink-google-apple/">苹果谷歌都醉心的深度链接（DeepLink） 将为移动营销带来六大变革！</a>
+                    <span class="author"><span class="post-date"><time datetime="2016-07-23T00:00:00+08:00">23 July, 2016</time></span>&nbsp;&nbsp;•&nbsp;&nbsp;慧岩</span>
+                    <div class="tags">
+                        
+                        |<a class="tag" href="/blog/tags/deeplink">#deeplink</a>
+                        |
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+        
+        <div class="post" style="display: none;">
+        
+            <div class="bg" style="background-image:url('/img/cover-2016-7-15-exchange.jpg');"></div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <a class="title" href="/2016/07/15/exchange/">App 换量总是事倍功半？ 这样做，靠谱！</a>
+                    <span class="author"><span class="post-date"><time datetime="2016-07-15T00:00:00+08:00">15 July, 2016</time></span>&nbsp;&nbsp;•&nbsp;&nbsp;DS联盟</span>
+                    <div class="tags">
+                        
+                        |<a class="tag" href="/blog/tags/deeplink">#deeplink</a>
+                        
+                        |<a class="tag" href="/blog/tags/应用场景">#应用场景</a>
+                        |
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+        
+        <div class="post" style="display: none;">
+        
+            <div class="bg" style="background-image:url('/img/cover-2016-7-10-rebund.jpg');"></div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <a class="title" href="/2016/07/10/rebund/">原来，返利拉新不要邀请码也可以啊！</a>
+                    <span class="author"><span class="post-date"><time datetime="2016-07-10T00:00:00+08:00">10 July, 2016</time></span>&nbsp;&nbsp;•&nbsp;&nbsp;DS联盟</span>
+                    <div class="tags">
+                        
+                        |<a class="tag" href="/blog/tags/deeplink">#deeplink</a>
+                        
+                        |<a class="tag" href="/blog/tags/应用场景">#应用场景</a>
+                        |
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+</div>
+
+                <div class="blog-top-tags">
+                    
+                    
+                    <a class="blog-tag"
+                      href="/blog/tags/deeplink">#deeplink</a>
+                    
+                    
+                    
+                    <a class="blog-tag"
+                      href="/blog/tags/移动运营">#移动运营</a>
+                    
+                    
+                    
+                    <a class="blog-tag"
+                      href="/blog/tags/社会化分享">#社会化分享</a>
+                    
+                    
+                    
+                    <a class="blog-tag"
+                      href="/blog/tags/自然增长">#自然增长</a>
+                    
+                    
+                    
+                    <span class="blog-tag selected">#战略联盟</span>
+                    
+                    
+                    
+                    <a class="blog-tag"
+                      href="/blog/tags/应用场景">#应用场景</a>
+                    
+                    
+                    
+                    <a class="blog-tag"
+                      href="/blog/tags/增长联盟">#增长联盟</a>
+                    
+                    
+                </div>
+            </div>
+            <div class="blog-cards-wrapper">
+                 
+                <section class="blog-card container col-md-3 col-sm-6">
+                    <div class="blog-main-wrapper blog-list-area">
+                        <a href="/2016/06/01/tuzhan-deepshare/"><div class="post-cover" style="background-image:url(/img/cover-2016-6-1-tuzhan-deepshare.jpg);"></div></a>
+                        <h4 class="blog-list-title"><a href="/2016/06/01/tuzhan-deepshare/">六一节大礼：用炫酷的 H5 给你的 App 轻松导流！ </a></h4>
+                        <p class="blog-list-abstract">
+                            专业H5制作平台 - 兔展和DeepShare的强强联手，打造微信到 App 端的新一代引流神器！
+                        </p>
+                    </div>
+                </section>
+                
+            </div>
+            <div style="clear: both;"></div>
+
+            <div class="blog-main-wrapper text-center">
+                <div class="pagination">
+                    
+                    <span class="previous">
+                        <i class="icon-large icon-chevron-sign-left"></i>
+                    </span>
+                    
+                    <span class="page_number "> / </span>
+                    
+                    <span class="next ">
+                        <i class="icon-large icon-chevron-sign-right"></i>
+                    </span>
+                    
+                </div>
+            </div>
+        </div>
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

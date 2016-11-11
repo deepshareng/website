@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+<!-- Demo Section -->
+<section id="demo-1">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <!--
+            <div class="text-center">
+                <h1><img height=30 style="margin-right:5px; margin-top:1px;" src="/img/demo/demo-icon.png"/><span class="underline-title">应用场景</span></h1>
+            </div>
+            -->
+            <div class="demo-block">
+                <h2><img src="{{ site.data.demos[0].icon }} " /> {{ site.data.demos[0].title }} </h2>
+                <p>{{ site.data.demos[0].desc }} </p>
+            </div>
+            <img width=100% src="{{ site.data.demos[0].image }}"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='{{ site.data.demos[0].qrcode }}'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="demo-2" style="background-color: #f8f8f8;">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="demo-block">
+                <h2><img src="{{ site.data.demos[1].icon }} " /> {{ site.data.demos[1].title }} </h2>
+                <p>{{ site.data.demos[1].desc }} </p>
+            </div>
+            <img width=100% src="{{ site.data.demos[1].image }}"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='{{ site.data.demos[1].qrcode }}'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="demo-3">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="demo-block">
+                <h2><img src="{{ site.data.demos[2].icon }} " /> {{ site.data.demos[2].title }} </h2>
+                <p>{{ site.data.demos[2].desc }} </p>
+            </div>
+            <img width=100% src="{{ site.data.demos[2].image }}"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='{{ site.data.demos[2].qrcode }}'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO(iOS)</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="demo-4" style="background-color: #f8f8f8;">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="demo-block">
+                <h2><img src="{{ site.data.demos[3].icon }} " /> {{ site.data.demos[3].title }} </h2>
+                <p>{{ site.data.demos[3].desc }} </p>
+            </div>
+            <img width=100% src="{{ site.data.demos[3].image }}"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='{{ site.data.demos[3].qrcode }}'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO(iOS)</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+        $(function() {
+            $("[data-toggle='popover']").popover();
+        });
+</script>
+<!--
+<section id="demo-4" style="background-color: #f8f8f8;">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="text-center">
+                <h2><img src="{{ site.data.demos[3].icon }} " /> {{ site.data.demos[3].title }} </h2>
+                <p>{{ site.data.demos[3].desc }} </p>
+            </div>
+            <img width=100% src="{{ site.data.demos[3].image }}"/>
+        </div>
+    </div>
+</section>
+-->

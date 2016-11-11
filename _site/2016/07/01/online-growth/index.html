@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>可以，这很「心机」——提高线上活动导量效率的小法宝</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <div class="nav-offset" style="height: 40px"></div>
+        <div class="">
+            <div class="container">
+                <div class="blog-article-area">
+                    <div class="back-to-blog">
+                        <a href="/blog"><i class="icon  icon-chevron-left"></i>&nbsp;&nbsp;Back to Blog</a>
+                    </div>
+                    <h1 class="blog-title">可以，这很「心机」——提高线上活动导量效率的小法宝</h1>
+                    <div class="blog-article-top">
+                        <div class="blog-article-tags">
+                            
+                            <a class="btn btn-success"
+                                href="/blog/tags/自然增长">#自然增长</a>
+                            
+                        </div>
+                        <div class="blog-article-time">
+                            <span>DS联盟</span> 
+                                •
+                            <span class="entry-date"><time datetime="2016-07-01T00:00:00+08:00">July 01, 2016</time></span>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div class="blog-article-body">
+                        <!--
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="http://qn.fds.so/ds-static/blog-online-growth-1.jpg" style="max-width:80%;min-width:320px"/>
+</div>
+-->
+
+<p>线上活动一直是获取新用户和活跃用户的重要手段。一般意义上来讲，一个线上活动会起到以下几个作用：</p>
+
+<h3 id="section">创造话题</h3>
+
+<p>每年的「双十一」都是一男女老少拿着手机等候12点的情景比过年还热闹。对于“双十一”的讨论往往是从互动前的前一个月就开始了，更厉害的当一年的「双十一」结束后都开始计划下一年的「双十一」抢购计划了。在众多的电商降价活动中，关于「双十一」讨论最具有话题性，持续的时间也最长。</p>
+
+<h3 id="section-1">树立品牌</h3>
+
+<p>还拿「双十一」作为例子，「双十一」过后，人们讨论的话题不仅仅是「买到了多少好货」，同时还有「天猫好有钱」、「天猫技术能力好强」等等这些。这些讨论都在无形中给用户心里或多或少留下了一个「天猫很强」、「天猫让人放心」的观念，所以在每一次「双十一」过后，人们对天猫的品牌认知度都会有所提升。 </p>
+
+<h3 id="section-2">培养用户习惯</h3>
+
+<p>电商类应用热衷于线上活动，不仅仅因为线上活动能带来一时的用户活跃和转化，而是用户在购买之后还有一系列的查看物流、查看相关产品等活动，再加上用户在购买同类产品的同时往往会选择相对熟悉的平台，遵从行为习惯，而「双十一」这样的大减价活动为培养用户购买习惯奠定了基础。  APP
+端的线上活动不同于 Web 端的线上活动，这样的不同来自于 APP
+结构本身的一些缺陷。Web
+端的用户只需要点击对应的链接就可以直达对应的活动内容页的消费流程，而在 APP
+端的用户则必须下载 APP 并在 APP
+进行搜索才能接触到线上活动的内容。这样的差异让我们不得不从新的角度来看待一个
+APP 端的线上活动。从用户的角度来讲，有两个纬度是最重要的：</p>
+
+<p><strong>一、活动本身对用户的吸引力</strong><br />
+<strong>二、用户到达活动的难易程度</strong></p>
+
+<p>而目前，第二点往往被忽视。事实上，即使一个非常有吸引力的活动，用户也会因为到达活动难度太大而放弃，比如微信的H5分享页 :上一年的《微信H5分享页用户行为数据分析》中指出，用户流失量最大的地方是5到6页，也就意味着用户在H5页上面浏览信息的耐心只有5到6页。同样的，在 APP 端的活动页，如果用户需要5到6次的点击才能到达的话，大多数用户就已经失去耐心，放弃该活动了。</p>
+
+<p>于是，在用户体验的巨大压力下，线上活动不得不开始寻求一个有效的解决方案，而在这方面实践成功的例子，当然要首推简书
+APP —— </p>
+
+<blockquote>
+  <p>「短短2周内，获得了超过30万次的访问，接受近5000篇投稿」、「预计总投稿字数超过1000万字」、「仅以字数算，这可能是中文世界最大的一次UGC」，这些好看的数据来自于简书APP 在五月启动的「神转折大赛」。而在这样巨大的流量面前，简书  APP 端用了一些「小心机」，让大量的流量转化为了  APP 的活跃用户。</p>
+</blockquote>
+
+<p> 那么，简书的「小心机」，究竟是什么呢？</p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="http://qn.fds.so/ds-static/blog-online-growth-2.jpg" style="max-width:80%;min-width:320px" />
+</div>
+
+<p>其实，简书的「小心机」就是目前正热的 Universal Link，通过 Universal Link 让用户直接从H5分享页跳转到 APP
+内对应页面。正如前面提到的，这样的「小心机」，让用户从外部内容到 APP
+里对应内容的过程只需要 1 步，让用户根本就没有失去耐心的机会 —— 用户还没有回过神来，就，已经直接到达了达 APP
+中对应的内容。</p>
+
+<p>更有意思的是，简书手机网页端只能会让用户看到一部分的评论，但同时看不到全部的评论，也无法写评论。这些相对「高级」的功能只有在 APP
+端才能体验到。评论是一个用户成产内容社区不可分割的一部分，且用户已经能在网页版看到了部分评论，这样在无形中增加了用户去APP端评论的动力，同时 Universal
+Link 将用户到达内容的难度降到最低。 </p>
+
+<p>而如今，有越来越多的 APP 在使用这样的「小心机」，如一点资讯、才米公社、她理财等。这些 APP
+将这样的功能作为基础配置，将基础功能放在外部传播页面，而将“高级”功能，或者说是用户吸引力较大的一部分功能则被放入了
+APP 内部。这样，不仅仅是线上活动，外部传播的每一个界面都成为了 APP 导量的入口。</p>
+
+<p>那么，怎样才可以获得使用心机的实力呢？</p>
+
+<p>Universal Link 的接入十麻烦而且适配性不好，因而，很多小伙伴都选择了第三方工具进行集成，比如上文中提到的一点资讯、才米公社、她理财这些优秀的
+APP 都使用 DeepShare 来解决 H5 跳转 APP 问题。</p>
+
+<p>首先，由 Deepshare 提供的”一下跳转”的集成不需要对 APP
+本身的代码进行改动，而只需要在 Xcode 中填入对应的 Association Domains
+并在分享的 H5 页面添加调用”一下跳转”的三行代码就可以完成了。</p>
+
+<p>其次，在适配性上，”一下跳转”已经完成了 iOS 9
+可以让用户享受到统一且优秀的跳转体验。而在使用体验上，无论是朋友圈的分享链接、公众号文章的阅读原文还是聊天窗口的分享都可以直接调起
+APP ，跳出微信的封锁圈，将微信上大量的流量都导入 APP 中。</p>
+
+<p>此外，DeepShare 还提供跳转 APP 内页直达服务，也就是说，比如当你把你的 APP
+内的某个单品、某篇文章、某个直播间以短信形式发送给用户的时候，用户点击链接不仅可以直接调起
+APP，还可以直达 APP 内的相应的单品页、文章页面、直播间页面哦。直达消费，只需一步！</p>
+
+<p>在 DeepShare 的帮助下，相信你的线上活动可以大大提高转化率和留存率，满血战胜推广这个大BOSS。</p>
+
+
+                    </div>
+                </div>
+
+                <hr>
+                <div class="blog-main-wrapper text-center">
+                    <nav class="pagination" role="navigation">
+                    
+                          <a href="/2016/06/01/tuzhan-deepshare/" class="btn" title="六一节大礼：用炫酷的 H5 给你的 App 轻松导流！">上一篇</a>
+                    
+                    
+                          <a href="/2016/07/05/sms/" class="btn" title="App 推广要不要放弃短信营销？">下一篇</a>
+                    
+                    </nav>
+                </div>
+            </div>
+        </div>
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

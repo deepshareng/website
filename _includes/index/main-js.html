@@ -1,0 +1,196 @@
+<script src="js/ilightbox.packed.js"></script>
+
+<script>
+        $(function() {
+            var INDEX_ANIMATION_PLAYING = false;
+
+            $(".video-play").iLightBox();
+
+            $("[data-toggle='popover']").popover();
+
+
+            // animation by pure javascript
+            var playAnimation = function(animationConf, n, selector, callback) {
+
+                var getPercentStr = function(x) {
+                    return '' + (x * 100) + '%';
+                }
+
+                var stepForward = function(i) {
+                    $(selector).css('background-position', getPercentStr(i/n));
+                    if (i < n) {
+                        setTimeout(function(){
+                            stepForward(i + 1); 
+                        }, animationConf[i] * 60);
+                    } else {
+                        callback();
+                    }
+                } 
+
+                stepForward(0);
+            }
+
+
+
+            var playLeft = function() {
+                var animationConf = [18, 18, 2, 18, 2,
+                                    2, 18, 2, 2, 1,
+                                    1, 18, 2, 2, 18,
+                                    18, 18, 18, 18] 
+                // Tricky!! n+1 pictures
+                var n = animationConf.length - 1;
+
+                playAnimation(animationConf, n, "#share-left", playTransfer);
+            }
+
+            var playTransfer = function() {
+                $('#transfer-btn').addClass('animate');
+            }
+            var freezeBtnAtEnd = function() {
+                $('#transfer-btn').css('top', '18%');
+                $('#transfer-btn').css('left', '68.3%');
+            }
+            var playRight = function() {
+                var animationConf = [18, 18, 18, 9, 1,
+                                    1, 1, 1, 18, 18,
+                                    3, 3, 3, 18, 1,
+                                    1, 1, 1, 1, 9,
+
+                                    18, 1, 1, 1, 18,
+                                    3, 3, 1, 18, 1, 
+                                    1, 1, 1, 1, 1,
+                                    9, 18, 1, 1, 1,
+                                    1, 18, 18] 
+
+                // Tricky!! n+1 pictures
+                var n = animationConf.length - 1;
+
+                playAnimation(animationConf, n, "#share-right", restart);
+            }
+
+            var resetAll = function() {
+                $('#share-left').css('background-position', '0%');
+                $('#share-right').css('background-position', '0%');
+                $('#transfer-btn').removeClass('animate');
+                $('#transfer-btn').css('top', '70.6%');
+                $('#transfer-btn').css('left', '28%');
+            }
+
+            var restart = function() {
+                setTimeout(function(){
+                    resetAll(); 
+                    playLeft();
+                }, 2000);
+            }
+
+            var checkAnimationStatus = function() {
+                if(!INDEX_ANIMATION_PLAYING) {
+                    INDEX_ANIMATION_PLAYING = true;
+                    restart();   
+                }
+            }
+            // init strike
+            $('#share-left-img-loader').on('load', function() {
+                if(!INDEX_ANIMATION_PLAYING) {
+                    INDEX_ANIMATION_PLAYING = true;
+                    restart();   
+                }
+            });
+
+
+            $('#transfer-btn').on('webkitAnimationEnd animationend', function() {
+                freezeBtnAtEnd();
+                playRight();
+            });
+
+            // growth panel
+            function countDownload(n) {
+                setTimeout(function() {
+                    $('#download-num').html(42 - n);
+                    if (n > 0 && ANIMATION_STARTED == true) {
+                        countDownload(n - 3);
+                    }
+                }, 100);
+            }
+
+            function countStay(n) {
+                setTimeout(function() {
+                    $('#stay-num').html(104 - n);
+                    if (n > 0 && ANIMATION_STARTED == true) {
+                        countStay(n - 3);
+                    }
+                }, 100);
+            }
+
+            function countStay7d(n) {
+                setTimeout(function() {
+                    $('#stay-num-7d').html(114 - n);
+                    if (n > 0 && ANIMATION_STARTED == true) {
+                        countStay7d(n - 3);
+                    }
+                }, 100);
+            }
+
+            var ANIMATION_STARTED = false;
+            var stopAnimation = function() {
+                $('.animation-block').removeClass('animate'); 
+                ANIMATION_STARTED = false;
+            }
+            var restartAnimation = function() {
+                stopAnimation();
+                $('.animation-block').addClass('animate'); 
+                ANIMATION_STARTED = true;
+                countDownload(42);
+                countStay(102);
+                countStay7d(114);
+            }
+
+            $(window).on("scroll", function() {
+                if (-$("#growth-panel").height() < $("#growth-panel").offset().top - $(document).scrollTop()
+                        && $("#growth-panel").offset().top - $(document).scrollTop() < $(window).height()) {
+                    if (ANIMATION_STARTED === false) {
+                        restartAnimation();
+                    }
+                } else {
+                    if (ANIMATION_STARTED === true) {
+                        stopAnimation();
+                    }
+                }
+            });
+
+            setInterval(checkAnimationStatus, 10000);
+
+            var totalPv = 0;
+            function refreshPv() {
+                $.ajax({
+                    url: 'http://dashboard.deepshare.io/statistics/pv-total',
+                    type: 'GET',
+                    success: function(data) {
+                        //$('#ds-total-pv').html(data.total_pv);  
+
+
+                        var options = {
+                              useEasing : true, 
+                              useGrouping : true, 
+                              separator : ',', 
+                              decimal : '.', 
+                              prefix : '', 
+                              suffix : '' 
+                        };
+                        var demo = new CountUp("ds-total-pv", totalPv, data.total_pv, 0, 2.5, options);
+                        demo.start();
+                        totalPv = data.total_pv; 
+                    },
+                    dataType: 'json',
+                });
+
+            }
+
+            refreshPv();
+            setInterval(refreshPv, 10000);
+        });
+
+
+        // Show pv number
+
+</script>

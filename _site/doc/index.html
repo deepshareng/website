@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>DeepShare - Share your App with the world</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <!-- Highlight JS -->
+<script src="/js/highlight.pack.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+
+<!-- Docs Section -->
+<section id="documentation">
+  <div class="doc-banner">
+    <div class="container download-section">
+        <p class="download-block"><span class="download-title"> SDK 下载 </span></p>
+        <p class="download-block"><a href="http://qn.fds.so/deepshare_sdk_ios_v2.2.0.zip" class="download-btn ebo-white-button"><i class="icon-apple" style=""></i> iOS 下载</a></p>
+        <p class="download-block"><a href="https://deepshare.blob.core.chinacloudapi.cn/sdk/deepshare_android_v2.1.1.zip" class="download-btn ebo-white-button"><i class="icon-android"></i> Android 下载</a></p>
+    </div>
+  </div>
+  <div class="container doc-content">
+      <div class="col-lg-3">
+        <!-- Nav tabs -->
+        <nav class="doc-sidebar">
+          <ul class="nav nav-pills nav-stacked" role="tablist">
+            
+            <li role="" id = "start-integrate-tab" class="nav-first-level"
+             class="active" 
+            ><a class="section-tab" href="#start-integrate" aria-controls="start-integrate" role="tab" data-toggle="tab">开始集成</a></li>
+            
+            <li role="" id = "deepshare-params-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#deepshare-params" aria-controls="deepshare-params" role="tab" data-toggle="tab">DeepShare参数</a></li>
+            
+            <li role="" id = "web-webapi-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#web-webapi" aria-controls="web-webapi" role="tab" data-toggle="tab">Web API(网页端)</a></li>
+            
+            <li role="" id = "web-jsapi-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#web-jsapi" aria-controls="web-jsapi" role="tab" data-toggle="tab">JS API(网页端)</a></li>
+            
+            <li role="" id = "android-sdk-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#android-sdk" aria-controls="android-sdk" role="tab" data-toggle="tab">ANDROID SDK</a></li>
+            
+            <li role="" id = "ios-sdk-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#ios-sdk" aria-controls="ios-sdk" role="tab" data-toggle="tab">IOS SDK</a></li>
+            
+            <li role="" id = "web-sdk-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#web-sdk" aria-controls="web-sdk" role="tab" data-toggle="tab">Web API集成(App端)</a></li>
+            
+            <li role="" id = "attr-push-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#attr-push" aria-controls="attr-push" role="tab" data-toggle="tab">Attribution Push 集成</a></li>
+            
+            <li role="" id = "faq-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#faq" aria-controls="faq" role="tab" data-toggle="tab">FAQ</a></li>
+            
+            <li role="" id = "one-jump-tab" class="nav-first-level"
+            
+            ><a class="section-tab" href="#one-jump" aria-controls="one-jump" role="tab" data-toggle="tab">一下跳转</a></li>
+            
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Tab panel -->
+        <div class="tab-content">
+          
+          <div role="tabpanel" class="tab-pane 
+           active 
+          " id="start-integrate"><h1 id="section">开始集成</h1>
+<p>集成前的准备工作</p>
+
+<h2 id="register">注册后台账号</h2>
+<p>后台地址为：<a href="https://dashboard.deepshare.io">https://dashboard.deepshare.io</a></p>
+
+<p>提交注册申请后，请前往注册邮箱，在邮件中点击激活链接，即可进入管理后台，请按照
+<a href="https://dashboard.deepshare.io/#/create-app">集成引导</a>添加、集成APP。</p>
+
+<h2 id="appID">关于AppID</h2>
+<p>首次登入开发者后台后，可以添加新App, 并获取AppID。AppID作为您的应用在DeepShare的唯一标识，在后继SDK集成环节需要被使用到。</p>
+
+<p>接入DeepShare的同一个应用的iOS版本和Android版本可以使用同一个AppID，无需重新申请。使用同一个AppID可以支持iOS版本和Android版本等多平台版本的数据整合和对比统计。</p>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="deepshare-params"><h1 id="deepshare">DeepShare参数</h1>
+
+<p>DeepShare参数是DeepShare服务的核心元素，DeepShare参数通过DeepShare服务可以从Web端传递到App内部。</p>
+
+<p>DeepShare的所有功能都是基于DeepShare参数实现的，例如场景还原，渠道检测，归因分析等。</p>
+
+<p>以下分别介绍DeepShare参数的每一个域及其对应的功能，其中每一个域都是可选的。</p>
+
+<h2 id="recovery">场景还原</h2>
+
+<p><strong>inapp_data</strong>：通过将应用内的场景还原参数（例如文章地址、商品ID等）设置到inapp_data域，当App启动时通过调用DeepShare的init方法，就可以得到此场景还原参数。<br />
+开发者可以选择通过集成Native SDK或者调用Web API(App端)来获取场景还原参数。当场景还原参数返回后，开发者可以根据参数信息进行场景的还原。  <br />
+实例如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span> <span class="o">:</span> <span class="s2">&quot;mkdir&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">inapp_data</span> <span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>其中data中参数格式可以为任意Json数据格式，例如：</p>
+
+<ul>
+  <li>字符串：name : “mkdir”,</li>
+  <li>整  数：value : 1,</li>
+  <li>布尔值：is_ok : true,</li>
+  <li>…</li>
+</ul>
+
+<p>打开App时即可收到DeepShare启动参数。</p>
+
+<ul>
+  <li><a class="page-link" href="#ios-sdk-basic">iOS启动时接受inapp_data实例代码</a></li>
+  <li><a class="page-link" href="#android-sdk-basic">Android启动时接受inapp_data实例代码</a></li>
+</ul>
+
+<p>如果inapp_data域为空，App被调起时就不会接收到场景还原参数。</p>
+
+<h2 id="channel">渠道监测</h2>
+
+<p><strong>channels</strong>：通过设置channels域，自动将安装前后的渠道绑定起来，之后可以通过Dashboard查看渠道的表现。 <br />
+实例如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">channels</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;chanName_chanType_chanNumber&quot;</span><span class="p">],</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="attribute">归因分析</h2>
+
+<p><strong>sender_id</strong>：通过native SDK获取，用于标识此分享的发起者。 此参数用于统计以及归因分析。</p>
+
+<ul>
+  <li><a class="page-link" href="#ios-sdk-basic">iOS</a>: <code>+ (NSString *)getSenderID;</code></li>
+  <li><a class="page-link" href="#android-sdk-basic">Android</a>: <code>public static String getSenderId();</code></li>
+</ul>
+
+<h2 id="download">自定义下载过程</h2>
+
+<p>download_title：可以附加显示在跳转商店页面的信息，可以给用户更好的引导。</p>
+
+<p>download_msg：可以附加显示在跳转商店页面的信息，可以给用户更好的引导。</p>
+
+<p>（此页面只会在iOS9 Universal Link的Web中转页面和Android直接下载APK的中转页面出现）</p>
+<div align="center"><img src="/img/doc-deepshare-params-p1.png" style="width:60%;" /></div>
+
+<h2 id="example">DeepShare参数实例</h2>
+
+<p>一个完整的DeepShare参数：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span> <span class="o">:</span> <span class="s2">&quot;mkdir&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">inapp_data</span> <span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+    <span class="nx">channels</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;chanName1_chanType1_chanNumber1&quot;</span><span class="p">],</span>
+    <span class="nx">sender_id</span> <span class="o">:</span> <span class="s2">&quot;senderID&quot;</span><span class="p">,</span>
+    <span class="nx">download_title</span> <span class="o">:</span> <span class="s2">&quot;我是download_title&quot;</span><span class="p">,</span>
+    <span class="nx">download_msg</span> <span class="o">:</span> <span class="s2">&quot;我是download_msg&quot;</span><span class="p">,</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>请参考以下两节内容以进行下一步集成。</p>
+
+<ul>
+  <li><a class="page-link" href="#web-webapi">Web API(网页端)</a>：(推荐方式)通过调用Web接口获取DeepShare Link, 通过DeepShare Link进行跳转。</li>
+  <li><a class="page-link" href="#web-jsapi">JS API(网页端)</a>：通过调用DeepShare的JS接口，来实现DeepShare相关功能的方式。(Beta)</li>
+</ul>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="web-webapi"><h1 id="web-api">Web API(网页端)</h1>
+
+<p>Web API是网页端通过调用DeepShare的Web接口，返回一个绑定DeepShare参数的DeepShare链接。</p>
+
+<p>当DeepShare链接被用户点击后，如果App已经被安装在手机上，App会被自动唤起；如果App未安装，DeepShare会引导用户进入商店或者直接下载安装。</p>
+
+<p>无论哪种场景，当App启动时，调用DeepShare的SDK相应接口即可获取启动参数等相关信息。</p>
+
+<h2 id="link">DeepShare链接</h2>
+
+<p>DeepShare链接可以看成一个绑定APP初始化参数、渠道信息、发送方ID信息等Web信息的Deferred Deeplink链接。</p>
+
+<p>其结构为：https://fds.so/d/#APP_ID/#Hash <br />
+例如：https://fds.so/d/38CCA4C77072DDC9/2LwCsozd9S</p>
+
+<p>DeepShare链接具有如下特点：</p>
+
+<ul>
+  <li>短连接，易于分享</li>
+  <li>自适应浏览器（微信，微博，各种第三方安卓浏览器均已适配）</li>
+  <li>支持iOS Universal Link</li>
+  <li>转化率自动跟踪</li>
+</ul>
+
+<p>通过DeepShare链接实现场景还原的典型流程如下图所示，其中黄色部分的流程需要调用DeepShare的接口来完成。</p>
+<div align="center"><img src="/img/doc-genurl-p1.png" style="width:70%;" /></div>
+
+<h2 id="api">API接口说明</h2>
+
+<ul>
+  <li>URL：https://fds.so/v2/url/用户申请的AppID</li>
+  <li>请求方式：POST</li>
+  <li>支持格式：JSON</li>
+  <li>请求参数：<a class="page-link" href="#deepshare-params-example">DeepShare参数</a></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">paramsJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://fds.so/v2/url/#appID&#39;</span><span class="p">,</span> <span class="nx">paramsJson</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//deepshareUrl为所生成的DeepShare Link</span>
+      <span class="nx">deepshareUrl</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+ <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//出错情况下可以继续用户正常逻辑，可设置一个默认url.</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>为了使跳转时有更好的体验，<strong>强烈建议</strong>采用以下调用方式:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">paramsJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://fds.so/v2/url/#appID&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="nx">paramsJson</span><span class="p">,</span>
+    <span class="nx">xhrFields</span><span class="o">:</span> <span class="p">{</span><span class="nx">withCredentials</span><span class="o">:</span> <span class="kc">true</span><span class="p">,},</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//deepshareUrl为所生成的DeepShare Link</span>
+        <span class="nx">deepshareUrl</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//出错情况下可以继续用户正常逻辑，可设置一个默认url.</span>
+    <span class="p">},</span>
+<span class="p">});</span></code></pre></figure>
+
+<h2 id="example">EXAMPLE</h2>
+
+<p>以下通过一个真实的项目”Linux CMD”演示如何产生DeepShare Link:</p>
+
+<body>
+  <div class="container">
+    <section>
+      <div class="row col-lg-6 col-lg-offset-1">
+      	<h4>URL</h4>
+        <pre class="requesturl">Perform a action!</pre>
+        <br />
+        <h4>Request</h4>
+        <pre class="request">Perform a action!</pre>
+        <br />
+        <h4>Response</h4>
+        <pre class="response">Perform a action!</pre>
+      </div>
+    </section>
+    <section>
+      <div class="row col-lg-6 col-lg-offset-1">
+        <h3>Action</h3>
+        <div class="group">
+          <button id="geturl" class="btn btn-info">GetURL</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <script type="text/javascript">
+    var requestView = $('.request');
+    var responseView = $('.response');
+    var requestUrlView = $('.requesturl');
+    var requestUrl = 'https://fds.so/v2/url/38CCA4C77072DDC9';
+    var deepshareUrl = null;
+    var data = {
+    	name:"mkdir",
+    }
+
+    var webParams = {
+        inapp_data : data,
+        sender_id :"senderID",
+        download_title : "DownLoad Title",
+    	  download_msg : "Download Msg",
+    }
+
+	  function generateUrl(){
+		    responseView.html("Waiting for response");
+        paramsJson = JSON.stringify(webParams);
+		    requestUrlView.html(requestUrl);
+        requestView.html(paramsJson);
+        $.post(requestUrl, paramsJson, function(result) {
+            responseView.html(JSON.stringify(result));
+            deepshareUrl = result.url;
+        }).error(function() {
+          //Do your own bussiness logic in case that our servive is not reachable.
+          deepshareUrl = "http://deepshare.io"
+        });
+	  }
+    window.onload = function () {
+    	generateUrl();
+    }
+
+    $('#geturl').click(function() {
+        generateUrl();
+    });
+
+    //Add this button action in your real html which is accessed by mobile
+    $('#openurl').click(function() {
+        if(deepshareUrl != null){
+            location.href = deepshareUrl;
+        }else{
+            //Do your own bussiness logic in case that our servive is not reachable.
+        }
+    });
+
+</script>
+</body>
+
+<h2 id="bestPractice">最佳实践</h2>
+
+<p>我们推荐的方法是在页面加载时调用接口生成本页面所需要的所有URL，用户点击时进行跳转： 
+（使用此方式在iOS9并且开启Universal Link的情况下，从微信、QQ等打开DeepShare URL时可以进行直接跳转，不需要用户手动选择在Safari打开）</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">deepshareUrl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://fds.so/v2/url/#appID&#39;</span><span class="p">,</span> <span class="nx">paramsJson</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">deepshareUrl</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">url</span>
+    <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">});</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>跳转的时候直接将location.href设为DeepShare URL：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#openDeepShareUrl&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">deepshareUrl</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">){</span>
+        <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">deepshareUrl</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="c1">//出错情况下可以继续用户正常逻辑.例如可以设置直接前往APP商店</span>
+    <span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<hr />
+<hr />
+
+<p>请参考以下三节内容以进行下一步集成。</p>
+
+<ul>
+  <li><a class="page-link" href="#android-sdk">Android SDK集成</a>：(推荐)Android native SDK的集成方法</li>
+  <li><a class="page-link" href="#ios-sdk">iOS SDK集成</a>：(推荐)iOS native SDK的集成方法</li>
+  <li><a class="page-link" href="#web-sdk">Web SDK集成</a>：App中直接调用Web接口的集成方法(不喜欢集成SDK的用户请走这里)</li>
+</ul>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="web-jsapi"><h1 id="js-api">JS API(网页端)</h1>
+
+<p>JS API是网页端通过调用DeepShare的JS接口，来实现DeepShare相关功能的方式。 <br />
+此功能目前处于Beta阶段。</p>
+
+<p>使用JS API可以高度定制化DeepShare相关流程，例如定制化所有Landing Page等。</p>
+
+<p>在需要调用的页面引入<a href="http://qn.fds.so/deepshare_v2.7.min.js">JS库文件</a> ，其文件地址为：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">http://qn.fds.so/deepshare_v2.7.min.js</code></pre></figure>
+
+<h2 id="api">API接口说明</h2>
+
+<h3 id="section">初始化</h3>
+
+<p>其中params为开发者自己组装的<a class="page-link" href="#deepshare-params-recovery">DeepShare参数</a>。</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">deepshare</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeepShare</span><span class="p">(</span><span class="nx">appid</span><span class="p">);</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">BindParams</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span></code></pre></figure>
+
+<h3 id="section-1">基础接口</h3>
+
+<p>触发跳转</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">();</span>  <span class="c1">// 开始跳转，调用后将立即跳转到目标（下载页面或APP内部）</span></code></pre></figure>
+
+<h3 id="section-2">回调接口</h3>
+
+<p>提示：<strong><em>DeepShare有成熟的默认处理方式，只有当需要高度定制跳转过程的时候才需要自己实现回调接口。</em></strong></p>
+
+<p>在某些少数情况下，不能跳转到目标地址，需要特殊处理。 <br />
+这些情况包括：</p>
+
+<ul>
+  <li>微信浏览中，没有应用宝地址且不支持universal link时</li>
+  <li>QQ浏览器中，没有应用宝地址且不支持univeral link时</li>
+  <li>weibo的内置浏览器中</li>
+  <li>用户的设备没有对用的版本, 例如APP只开发了Android版本，但用户的设备是iOS</li>
+  <li>一些特殊的浏览器的限制，不能进行跳转</li>
+</ul>
+
+<p>在这些情况下，deepshare JS sdk
+提供回调接口，方便开发者定制，为用户提供更好的体验。</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackWeixinIOSTip</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>        <span class="c1">// 在iOS的微信浏览器时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackWeixinAndroidTip</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>    <span class="c1">// 在Android的微信浏览器时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackWeiboIOSTip</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>         <span class="c1">// 在iOS的微博浏览器时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackWeiboAndroidTip</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>     <span class="c1">// 在Android的微博浏览器时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackQQIOSTip</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>            <span class="c1">// 在iOS的QQ浏览器时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackQQAndroidTip</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>        <span class="c1">// 在Android的QQ浏览器时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackIOSNotAvailable</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>     <span class="c1">// iOS版本不存在时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackAndroidNotAvailable</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="c1">// Android版本不存在时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackCannotDeeplink</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>      <span class="c1">// 浏览器不能支持DeepLink跳转时将调用此callback</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackAndroidDownloadLanding</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="c1">// 跳转下载地址时的LandingPage</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackAndroidMarketLanding</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="c1">// 在Android跳转时的LandingPage</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">SetCallbackAndroidCannotGoMarketLanding</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="c1">// 不能跳转Android市场的LandingPage</span></code></pre></figure>
+
+<h3 id="section-3">同时生成多个跳转</h3>
+<p>有时在一个web分享页面上需要有多个跳转App的入口，需要绑定不同的初始化参数，渠道参数等<a class="page-link" href="#deepshare-params-recovery">DeepShare参数</a>。 <br />
+针对这种情况，JS API提供了方便的批量处理接口。通过数组的方式，传入多个跳转配置:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span>
+  <span class="p">{</span>
+    <span class="nx">inapp_data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;mkdir&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">inapp_data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;grep&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">);</span></code></pre></figure>
+
+<p>跳转时需要指定数组对应下标作为Start()方法的参数:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// 0代表params array里第0个deepshare参数</span></code></pre></figure>
+
+<h2 id="example">EXAMPLE</h2>
+
+<p>以下通过一个真实的项目”Linux CMD”演示如何产生DeepShare Link:</p>
+
+<h3 id="section-4">单个跳转入口</h3>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="c1">//组装参数</span>
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">inapp_data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;mkdir&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">// 初始化DeepShare</span>
+<span class="kd">var</span> <span class="nx">deepshare</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeepShare</span><span class="p">(</span><span class="s1">&#39;38CCA4C77072DDC9&#39;</span><span class="p">);</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">BindParams</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;#GoToAppButton&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 触发跳转</span>
+    <span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">();</span>
+<span class="p">})</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre></figure>
+
+<p>如果您正在使用手机浏览此页面，可以点击这个按钮体验。</p>
+<body>
+  <div class="container">
+    <section>
+      <div class="row col-lg-6 col-lg-offset-0">
+        <div class="group">
+          <button id="gotoApp" class="btn btn-info">跳转App</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <script src="http://qn.fds.so/deepshare_v2.7.min.js"></script>
+  <script type="text/javascript">
+    var jsParams = {
+        inapp_data : {
+            name: 'mkdir',
+        },
+    }
+
+    var deepshare = new DeepShare('38CCA4C77072DDC9');
+    deepshare.BindParams(jsParams);
+    $('#gotoApp').click(function() {
+        deepshare.Start();
+    });
+
+</script>
+</body>
+
+<p><br /></p>
+
+<h3 id="section-5">多个跳转入口</h3>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="c1">//组装参数</span>
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span>
+  <span class="p">{</span>
+    <span class="nx">inapp_data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;mkdir&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">inapp_data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;grep&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="c1">// 初始化DeepShare</span>
+<span class="kd">var</span> <span class="nx">deepshare</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeepShare</span><span class="p">(</span><span class="s1">&#39;38CCA4C77072DDC9&#39;</span><span class="p">);</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">BindParams</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;#GoToMkdir&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 触发跳转</span>
+    <span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;#GoToGrep&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 触发跳转</span>
+    <span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre></figure>
+
+<p>如果您正在使用手机浏览此页面，可以点击这个按钮体验。</p>
+<body>
+  <div class="container">
+    <section>
+      <div class="row col-lg-6 col-lg-offset-0">
+        <div class="group">
+          <button id="gotoAppMkDir" class="btn btn-info">跳转MkDir</button>
+          <button id="gotoAppGrep" class="btn btn-info">跳转Grep</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <script src="http://qn.fds.so/deepshare_v2.7.min.js"></script>
+  <script type="text/javascript">
+    var jsParams = new Array(
+  {
+    inapp_data: {
+        name: 'mkdir',
+    },
+  },
+  {
+    inapp_data: {
+        name: 'grep',
+    },
+  }
+);
+
+    var deepshare = new DeepShare('38CCA4C77072DDC9');
+    deepshare.BindParams(jsParams);
+    $('#gotoAppMkDir').click(function() {
+        deepshare.Start(0);
+    });
+    $('#gotoAppGrep').click(function() {
+        deepshare.Start(1);
+    });
+
+</script>
+</body>
+
+<p><br /></p>
+
+<hr />
+
+<p>请参考以下三节内容以进行下一步集成。</p>
+
+<ul>
+  <li><a class="page-link" href="#android-sdk">Android SDK集成</a>：(推荐)Android native SDK的集成方法</li>
+  <li><a class="page-link" href="#ios-sdk">iOS SDK集成</a>：(推荐)iOS native SDK的集成方法</li>
+  <li><a class="page-link" href="#web-sdk">Web SDK集成</a>：App中直接调用Web接口的集成方法(不喜欢集成SDK的用户请走这里)</li>
+</ul>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="android-sdk"><h1 id="android-sdk">Android SDK</h1>
+
+<h2 id="setup">相关系统代码</h2>
+<p>当Activity为singleTop或singleTask的启动模式时，需要在系统回调方法onNewIntent()中将intent设置为新收到的intent，DeepShare需要根据启动intent判断程序是否是通过DeepShare链接被激活的。 <br />
+当Activity的启动模式不是singleTop或singleTask时，此方法也没有任何副作用，如果开发者不确定启动模式的话，建议添加。</p>
+
+<p>示例代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNewIntent</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">setIntent</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>在Activity的onStop方法中，调用DeepShare.onStop()方法。</p>
+
+<p>示例代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span>
+    <span class="n">DeepShare</span><span class="o">.</span><span class="na">onStop</span><span class="o">();</span><span class="c1">//停止DeepShare</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="basic">基本功能</h2>
+
+<h3 id="api">获取场景还原参数API</h3>
+<p>DeepShare的核心功能是可以在应用启动时接收到分享者的预设参数，并根据这些参数进行场景的恢复。</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * 初始化API，同时设置相应的监听器</span>
+<span class="cm"> * @param activity 当前activity</span>
+<span class="cm"> * @param appId APP注册时生成的APP ID.</span>
+<span class="cm"> * @param inappDataListener 用来接收inappData回调的instance.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">(</span><span class="n">Activity</span> <span class="n">activity</span><span class="o">,</span> <span class="n">String</span> <span class="n">appId</span><span class="o">,</span> <span class="n">DSInappDataListener</span> <span class="n">inappDataListener</span><span class="o">)</span></code></pre></figure>
+
+<p>为实现场景还原功能，启动Activity需要实现DSInappDataListener接口。DSInappDataListener接口定义了场景调用成功时的回调函数onInappDataReturned。 <br />
+在应用的启动Activity中，在onStart()方法里添加DeepShare.init方法，并通过重写异步回调方法onInappDataReturned()获取分享参数<code>params</code>。</p>
+
+<p>示例代码例如下： <br />
+（其中所返回参数”name”为<a class="page-link" href="#deepshare-params-recovery">DeepShare参数</a>中所举实例中的参数）</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">DSInappDataListener</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
+        <span class="n">DeepShare</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;此处填写您申请的App ID&quot;</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="cm">/** 代理方法onInappDataReturned处理获取的启动参数</span>
+<span class="cm">    * @param params 所获取到的启动参数</span>
+<span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInappDataReturned</span><span class="o">(</span><span class="n">JSONObject</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">params</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+                <span class="n">String</span> <span class="n">cmdName</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">);</span>
+                <span class="n">goToLinuxCmd</span><span class="o">(</span><span class="n">cmdName</span><span class="o">);</span> <span class="c1">//调用应用自己的接口跳转到分享时页面</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailed</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="userattribution">用户归因API</h2>
+
+<h3 id="id">返回分享者ID</h3>
+<p>通过此接口，可以获得唯一标识本用户在本App中的分享ID，可用于追踪用户分享源头。 <br />
+通常用法是将此分享者ID传入网页端API组装<a class="page-link" href="#deepshare-params-attribute">DeepShare参数</a>的JS代码中，作为sender_id的参数值生成DeepShare链接。</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * 返回我的senderId</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getSenderId</span><span class="o">()</span></code></pre></figure>
+
+<h3 id="section">获取分享带来的新使用</h3>
+<p>通过获取本用户分享带来的新用户的安装量及老用户的打开次数，开发者可以给此用户返利，以激励用户更多的分享，进而带来链式传播的效果</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * 异步返回通过我的分享带来的此应用的新使用，新用户的安装量及老用户的打开次数</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">getNewUsageFromMe</span><span class="o">(</span><span class="n">NewUsageFromMeListener</span> <span class="n">callback</span><span class="o">){</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>此功能依赖于上一个接口getSenderId()，开发者需要将分享者ID传入网页端API组装<a class="page-link" href="#deepshare-params-attribute">DeepShare参数</a>的JS代码中，否则此API的回调将会返回0值。 <br />
+此方法调用将异步执行，异步执行结果通过回调接口onNewUsageFromMe()返回。 <br />
+此接口定义为：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">NewUsageFromMeListener</span> <span class="kd">extends</span> <span class="n">DSFailListener</span> <span class="o">{</span>
+    <span class="cm">/* 返回我的分享带来的新的使用</span>
+<span class="cm">     * @param newInstall 新用户的下载安装量</span>
+<span class="cm">     * @param newOpen 老用户的打开次数</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNewUsageFromMe</span><span class="o">(</span><span class="kt">int</span> <span class="n">newInstall</span><span class="o">,</span> <span class="kt">int</span> <span class="n">newOpen</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="section-1">清空分享带来的新使用</h3>
+<p>清空本用户分享带来的新用户的安装量及老用户的打开次数，一般在返利结束后调用此方法，用于清零。</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * 清空通过我的分享带来的此应用的新使用，包括新安装的用户量和老用户的打开次数</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">clearNewUsageFromMe</span><span class="o">(</span><span class="n">DSFailListener</span> <span class="n">callback</span><span class="o">){</span>
+<span class="o">}</span></code></pre></figure>
+
+<h2 id="api-1">价值标签API</h2>
+
+<h3 id="section-2">改变价值标签的值</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * 改变指定价值标签的值，用户可以自定义事件的标签，如购买事件记录</span>
+<span class="cm"> * @param tagToValue 所指定价值标签和其增加或减少的价值量所组成的HashMap.</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">attribute</span><span class="o">(</span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">tagToValue</span><span class="o">,</span> <span class="n">DSFailListener</span> <span class="n">callback</span><span class="o">)</span></code></pre></figure>
+
+<ul>
+  <li>可以通过此接口，统计新用户及新使用带来的价值。一种场景是电商类应用可以通过此接口统计本用户分享所带来的价值，进而实现返利、赠送优惠券等营销活动</li>
+  <li>此接口中tagToValue为标签和其对应的值，其中值是改变量</li>
+  <li>此接口所改变的标签对应的值是属于深度链接分享者的，返利统计也会计算在分享者的名下</li>
+</ul>
+
+<p>示例代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;paidMoney&quot;</span><span class="o">,</span> <span class="mi">888</span><span class="o">);</span>
+<span class="c1">//在标签&quot;paidMoney&quot;下增加了888的值，如果paidMoney之前值为1000，调用接口后的值为1888</span>
+<span class="n">DeepShare</span><span class="o">.</span><span class="na">attribute</span><span class="o">(</span><span class="n">map</span><span class="o">,</span> <span class="k">new</span> <span class="nf">DSFailListener</span><span class="o">(){</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailed</span><span class="o">(</span><span class="n">String</span> <span class="n">reason</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">});</span></code></pre></figure>
+
+<h2 id="faq">FAQ</h2>
+
+<h4 id="appapp">当App在手机后台时，从微信中通过应用宝跳转至App后为何无法跳转至内容页面?</h4>
+<p>应用宝跳转时启动的不是App的LAUNCHER Activity, 而是App的当前Activity。所以如果DeepShare.init()方法在LAUNCHER Activity的onStart里调用而且当前Activity不是LAUNCHER Activity的话，App被调起时就无法跳转。  <br />
+解决方法是使用Application的<a class="page-link" href="http://developer.android.com/reference/android/app/Application.html#registerActivityLifecycleCallbacks(android.app.Application.ActivityLifecycleCallbacks">ActivityLifecycleCallbacks(需要翻墙)</a>来监听整个Application的生命周期事件。</p>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="ios-sdk"><h1 id="ios-sdk">iOS SDK</h1>
+
+<h2 id="setupUL">Universal Link</h2>
+<p>Universal Link是Apple为iOS 9提供的一个新特性，通过Universal Link，App可以无需打开Safari，直接通过iOS系统启动。
+在iOS9.2以后的版本中，如果继续通过Safari能否打开App Scheme来判断App是否安装，用户体验变得很差:</p>
+
+<ul>
+  <li>如果App未安装，会出现错误对话框:</li>
+</ul>
+<div align="center"><img src="/img/doc-ios-sdk-ul-p1.png" style="width:40%;" /></div>
+
+<ul>
+  <li>如果App已安装，会出现一个确认打开的对话框。但是在iOS9.2以后，这个对话框由以前的模态对话框变成了非模态对话框，如果通过打开Scheme超时来判断是否安装，超时后会继续执行超时回调代码。
+这样的话，即使在已经安装的情况下，还是会进入商店的下载页面。</li>
+</ul>
+
+<p>因此，我们强烈推荐配置Universal Link，而通过DeepShare来配置Universal Link也变得非常简便。 <br />
+<a href="https://dashboard.deepshare.io/#/app/ios">去配置Universal Link</a></p>
+
+<h2 id="basic">基本功能</h2>
+
+<h3 id="section">获取场景还原参数</h3>
+
+<p>DeepShare的核心功能是可以在应用启动时接收到分享者的预设参数，并根据这些参数进行场景的恢复。</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cm">/** 初始化API，同时设置相应的委托对象</span>
+<span class="cm"> * @param appId APP注册时生成的APP ID.</span>
+<span class="cm"> * @param options launchOptions AppDelegate的didFinishLaunchingWithOptions方法所传回的参数</span>
+<span class="cm"> * @param delegate 委托方法onInappDataReturned所在的类的对象</span>
+<span class="cm"> * @return void</span>
+<span class="cm"> */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">initWithAppID:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">appId</span> <span class="nf">withLaunchOptions:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">options</span> <span class="nf">withDelegate:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">delegate</span><span class="p">;</span>
+
+<span class="cm">/** 委托方法onInappDataReturned</span>
+<span class="cm"> * @param params 所获取到的启动参数</span>
+<span class="cm"> * @param error 错误信息</span>
+<span class="cm"> */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onInappDataReturned:</span> <span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span> <span class="nv">params</span> <span class="nf">withError:</span> <span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span> <span class="nv">error</span> <span class="p">{</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>在AppDelegate的didFinishLaunchingWithOptions方法中添加[DeepShare initWithAppID…]的调用，并通过Delegate接受返回的启动参数。
+LaunchOptions是用来判断App是否是通过URL Scheme进行唤起的。
+示例代码如下： <br />
+（其中所返回参数”name”为<a class="page-link" href="#deepshare-params-recovery">DeepShare参数</a>中所举实例中的参数）</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span><span class="p">{</span>
+    <span class="p">[</span><span class="n">DeepShare</span> <span class="nl">initWithAppID</span><span class="p">:</span><span class="s">@&quot;此处填写您申请的App ID&quot;</span> <span class="nl">withLaunchOptions</span><span class="p">:</span><span class="n">launchOptions</span> <span class="nl">withDelegate</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onInappDataReturned:</span> <span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span> <span class="nv">params</span> <span class="nf">withError:</span> <span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span> <span class="nv">error</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;finished init with params = %@&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span> <span class="n">description</span><span class="p">]);</span>
+        <span class="bp">NSString</span> <span class="o">*</span><span class="n">cmdName</span> <span class="o">=</span> <span class="p">[</span><span class="n">params</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;name&quot;</span><span class="p">];</span>
+        <span class="n">goToLinuxCmd</span><span class="p">(</span><span class="n">cmdName</span><span class="p">);</span> <span class="c1">//调用应用自己的接口跳转到分享时页面</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;init error id: %ld %@&quot;</span><span class="p">,</span><span class="n">error</span><span class="p">.</span><span class="n">code</span><span class="p">,</span> <span class="n">errorString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="userattribution">用户归因API</h2>
+
+<h3 id="senderID">返回分享者的ID</h3>
+
+<p>通过此接口，可以获得唯一标识用户在本App中的分享ID，可用于追踪用户分享源头。 <br />
+通常用法是将此分享者ID传入网页端API组装<a class="page-link" href="#deepshare-params-attribute">DeepShare参数</a>的JS代码中，作为sender_id的参数值生成DeepShare链接。</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cm">/**</span>
+<span class="cm"> * 获取分享者的ID</span>
+<span class="cm"> */</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSenderID</span><span class="p">;</span></code></pre></figure>
+
+<h3 id="section-1">获取分享带来的新使用</h3>
+<p>通过获取本用户分享带来的新用户的安装量及老用户的打开次数，开发者可以给此用户返利，以激励用户更多的分享，进而带来链式传播的效果。</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cm">/**</span>
+<span class="cm"> * 异步返回通过我的分享带来的此应用的新使用，新用户的安装量及老用户的打开次数</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getNewUsageFromMe:</span><span class="p">(</span><span class="n">callbackWithNewUsageFromMe</span><span class="p">)</span><span class="nv">callback</span><span class="p">;</span></code></pre></figure>
+
+<p>此功能依赖于上一个接口getSenderId，开发者需要将分享者ID传入网页端API组装<a class="page-link" href="#deepshare-params-attribute">DeepShare参数</a>的JS代码中，否则此API的回调将会返回0值。 <br />
+此方法调用将异步执行，异步执行结果通过block函数callbackWithNewUsageFromMe返回。 <br />
+此接口定义为：</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cm">/* 返回我的分享带来的新的使用</span>
+<span class="cm"> * @param newInstall 新用户的下载安装量</span>
+<span class="cm"> * @param newOpen 老用户的打开次数</span>
+<span class="cm"> * @param error 错误信息</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">^</span><span class="n">callbackWithNewUsageFromMe</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span> <span class="n">newInstall</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newOpen</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">);</span></code></pre></figure>
+
+<h3 id="section-2">清空分享带来的新使用</h3>
+<p>清空本用户分享带来的新用户的安装量及老用户的打开次数，一般在返利结束后调用此方法，用于清零。</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cm">/**</span>
+<span class="cm"> * 清空通过我的分享带来的此应用的新使用，包括新安装的用户量和老用户的打开次数</span>
+<span class="cm"> * @param callback 如果出错，错误信息会通过此block函数返回</span>
+<span class="cm"> */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">clearNewUsageFromMe:</span><span class="p">(</span><span class="n">callbackWithError</span><span class="p">)</span><span class="nv">callback</span><span class="p">;</span></code></pre></figure>
+
+<h2 id="api">价值标签API</h2>
+
+<h3 id="section-3">改变价值标签的值</h3>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cm">/**</span>
+<span class="cm"> * 改变指定价值标签的值</span>
+<span class="cm"> * @param tagToValue 所指定价值标签和其增加或减少的价值量所组成的NSDictionary.</span>
+<span class="cm"> */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">attribute:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">tagToValue</span> <span class="nf">completion:</span><span class="p">(</span><span class="n">callbackWithError</span><span class="p">)</span><span class="nv">callback</span><span class="p">;</span></code></pre></figure>
+
+<ul>
+  <li>可以通过此接口，统计新用户及新使用带来的价值。一种场景是电商类应用可以通过此接口统计本用户分享所带来的价值，进而实现返利、赠送优惠券等营销活动</li>
+  <li>此接口中tagToValue为标签和其对应的值，其中值是改变量</li>
+  <li>此接口所改变的标签对应的值是属于深度链接分享者的，返利统计也会计算在分享者的名下</li>
+</ul>
+
+<p>示例代码：</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="bp">NSString</span> <span class="o">*</span><span class="n">tag</span> <span class="o">=</span> <span class="s">@&quot;paidMoney&quot;</span><span class="p">;</span>
+<span class="bp">NSNumber</span> <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="mi">@888</span><span class="p">;</span>
+<span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">taggedvalue</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDictionary</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithObjects</span><span class="p">:</span><span class="l">@[</span><span class="n">value</span><span class="l">]</span> <span class="nl">forKeys</span><span class="p">:</span><span class="l">@[</span><span class="n">tag</span><span class="l">]</span><span class="p">];</span>
+<span class="c1">//在标签&quot;paidMoney&quot;下增加了888的值,如果paidMoney之前值为1000,调⽤用接⼝口后的值为1888</span>
+<span class="p">[</span><span class="n">DeepShare</span> <span class="nl">attribute</span><span class="p">:</span><span class="n">taggedvalue</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span> <span class="p">}];</span></code></pre></figure>
+
+<h2 id="faq">FAQ</h2>
+
+<h4 id="universal-link">Universal Link没有正常工作?</h4>
+<p>可能有多种原因，请依次排查。</p>
+
+<ol>
+  <li>请确认DashBoard中正确填写了Team Id。</li>
+  <li>因为Universal Link是App安装时激活的，如果是从XCode直接Debug版更新安装的，Universal Link可能不会被激活。请完全删除App后重新安装App。</li>
+  <li>请确保entitlements file关联了正确的target。因为一些原因，某些版本的Xcode 7并不会把entitlements file添加到build中，所以我们需要在project browser中手动将新生成的entitlements file添加到正确的target中，这样这个文件才会build。</li>
+</ol>
+
+<h4 id="libxcodewarning">导入lib后为何XCode显示很多warning?</h4>
+<p>这是XCode之前的一个bug，如果新工程是通过XCode7之前版本创建的，就会出现这个问题，如果新工程是通过XCode7之后版本创建的，就没有这个问题。  <br />
+在Debug版本中其实并不需要dSYM文件，解决的方法就是在Build Setting中将Debug setting从”DWARF with dSYM File” 改成”DWARF”, Debug setting保持不变。</p>
+<div align="center"><img src="/img/doc-ios-sdk-faq-p1.png" style="width:70%;" /></div>
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="web-sdk"><h1 id="web-api-">Web API 集成</h1>
+
+<p>DeepShare Web API 提供了一组Web API，可以帮助用户直接通过http访问和在Device端使用DeepShare的相应功能。</p>
+
+<p><strong>注意：请尽量使用Android SDK或者IOS SDK集成，Web API集成复杂度远远大于SDK集成。</strong></p>
+
+<h2 id="addToProject">添加到工程</h2>
+<p>请根据您所要调用的Web API的平台做相应修改，以便通过DeepShare链接直接启动App。</p>
+
+<h3 id="android">Android</h3>
+
+<p>修改Manifest.xml，增加DeepShare的intent-filter，这样您的App就可以通过浏览器被唤起。</p>
+
+<p>示例代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;manifest</span><span class="err">……</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;application</span><span class="err">……</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;activity</span><span class="err">……</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;intent-filter&gt;</span>
+                <span class="nt">&lt;data</span>
+                    <span class="na">android:host=</span><span class="s">&quot;此处填写DashBoard中生成的host&quot;</span>
+                    <span class="na">android:scheme=</span><span class="s">&quot;此处填写DashBoard中生成的scheme&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/intent-filter&gt;</span>
+        <span class="nt">&lt;/activity&gt;</span>
+    <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span></code></pre></figure>
+
+<h3 id="ios">iOS</h3>
+<p>打开*-Info.plist（*代表你的工程名字），添加用于回调的URL Scheme，App在Dashboard注册后会自动生成此值。</p>
+
+<ol>
+  <li>添加一个叫URL types的键值；</li>
+  <li>点击左边剪头打开列表，可以看到Item 0，一个字典实体；</li>
+  <li>点击Item 0新增一行，从下拉列表中选择URL Schemes，敲击键盘回车键完成插入；</li>
+  <li>更改所插入URL Scheme的值为DashBoard中生成的Scheme。</li>
+</ol>
+
+<p>完成后如图所示：
+<img src="/img/doc-ios-sdk-p1.png" alt="" /></p>
+
+<h2 id="basic">基本功能</h2>
+
+<h3 id="section">获取场景还原参数</h3>
+
+<h4 id="section-1">接口协议:</h4>
+
+<ul>
+  <li>
+    <p><strong>URL</strong>：https://fds.so/v2/inappdata/用户申请的AppID</p>
+  </li>
+  <li>
+    <p><strong>请求方式</strong>: POST</p>
+  </li>
+  <li>
+    <p><strong>支持格式</strong>: Json</p>
+  </li>
+  <li>
+    <p><strong>请求参数说明</strong>：</p>
+  </li>
+</ul>
+
+<body>
+    <table class="api_table" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr class="title">
+                <th width="20"></th>
+                <th width="100">名称</th>
+                <th width="80">类型</th>
+                <th width="60">必填</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">is_newuser</td>
+                <td class="url">bool</td>
+                <td class="url">是</td>
+                <td>是否是新安装APP的用户</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">unique_id</td>
+                <td class="url">string</td>
+                <td class="url">是</td>
+                <td>用户的唯一识别ID</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">sdk_info</td>
+                <td class="url">string</td>
+                <td class="url">是</td>
+                <td>调用方式，其值固定为:"webapi"</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">os</td>
+                <td class="url">string</td>
+                <td class="url">是</td>
+                <td>平台标识，其值为"iOS"或者"Android"</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">os_version</td>
+                <td class="url">string</td>
+                <td class="url">是</td>
+                <td>平台版本标识，例如:"9.1"(ios)或者"4.4.4"(android)</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">model</td>
+                <td class="url">string</td>
+                <td class="url">否</td>
+                <td>安卓设备品牌，例如:"MI 4LTE"；IOS不需要此值(android)</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">click_id</td>
+                <td class="url">string</td>
+                <td class="url">否</td>
+                <td>老用户打开时，从Scheme URI中解析得出</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">short_seg</td>
+                <td class="url">string</td>
+                <td class="url">否</td>
+                <td>老用户打开时, Device是IOS9并且启用Universal Link时，从Universal link中解析得出</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+</body>
+
+<ul>
+  <li><strong>返回参数说明</strong>：</li>
+</ul>
+<body>
+    <table class="api_table" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr class="title">
+                <th width="20"></th>
+                <th width="100">名称</th>
+                <th width="80">类型</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">inapp_data</td>
+                <td class="url">string</td>
+                <td>所绑定在用户之前点击的DeepShare链接中的场景还原数据</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+</body>
+
+<ul>
+  <li><strong>请求Json实例</strong>：
+    <ol>
+      <li>{"is_newuser" : true, "unique_id" : "320C9F2E-4876-4FD4-A6F5-B3DA804F32C7", "os" : "iOS", "os_version" : "8.1"}</li>
+      <li>{"is_newuser" : false, "unique_id" : "ce354d4e11c45855", "os" : "Android", "os_version" : "4.4.4", "click_id" : "l8sT0zzTq"}</li>
+      <li>{"is_newuser" : false, "unique_id" : "320C9F2E-4876-4FD4-A6F5-B3DA804F32C7", "os" : "iOS", "os_version" : "9.1", "short_seg" : "1zXcI3SOvS"}</li>
+    </ol>
+  </li>
+  <li><strong>返回Json实例</strong>：
+    <ol>
+      <li>{"inapp_data":"{\"key1\":\"value1\"}"}</li>
+      <li>{"inapp_data":"{\"article_id\":10010,\"has_star\":true,\"author\":\"Hai\"}"}</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="section-2">相关参数详解及参考实现:</h4>
+<ul>
+  <li><strong>unique_id</strong>: iOS可以用IDFA；Android可以用ANDROID_ID；或者使用用户登录名。当生成DeepShare链接时，此ID需要传入作为sender_id或forwarded_sender_id的参数值。</li>
+  <li><strong>click_id</strong> (Android)：Android App通过Scheme URI启动时，启动URI格式为&lt;scheme&gt;://&lt;host&gt;?click_id=&lt;click_id&gt;，解析出&lt;click_id&gt;的值。</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="cm">/*Android端获取click_id的参考实现*/</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Uri</span> <span class="n">data</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="na">getIntent</span><span class="o">().</span><span class="na">getData</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">data</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">data</span><span class="o">.</span><span class="na">isHierarchical</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">click_id</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">getQueryParameter</span><span class="o">(</span><span class="s">&quot;click_id&quot;</span><span class="o">);</span>
+            <span class="c1">//click_id为对应所需上传参数</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+ </code></pre></figure>
+
+<ul>
+  <li><strong>click_id</strong> (IOS)：Android App通过Scheme URI启动时，启动URI格式为&lt;scheme&gt;://?click_id=&lt;click_id&gt;，解析出&lt;click_id&gt;的值。</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"> <span class="cm">/*IOS端获取click_id的参考实现*/</span>
+ <span class="o">+</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">handleURL</span><span class="p">:(</span><span class="bp">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="n">url</span> <span class="p">{</span>
+    <span class="kt">BOOL</span> <span class="n">handled</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">NSString</span> <span class="o">*</span><span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span> <span class="n">fragment</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">query</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span> <span class="n">query</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">handled</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+        <span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">DSEncodingUtils</span> <span class="nl">decodeQueryStringToDictionary</span><span class="p">:</span><span class="n">query</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">params</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;click_id&quot;</span><span class="p">])</span> <span class="p">{</span>
+            <span class="bp">NSString</span> <span class="o">*</span><span class="n">click_id</span> <span class="o">=</span> <span class="p">[</span><span class="n">params</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;click_id&quot;</span><span class="p">];</span>
+            <span class="c1">//click_id为对应所需上传参数</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">handled</span><span class="p">;</span>
+<span class="p">}</span>
+ </code></pre></figure>
+
+<ul>
+  <li><strong>short_seg</strong>：当iOS9以上版本OS，并启用Universal Link时，iOS App通过Universal Link启动时，启动URI为用户所点击的DeepShare链接，格式为https://fds.so/d/&lt;AppID&gt;/&lt;short_seg&gt;，例如: https://fds.so/d/38CCA4C77072DDC9/1zXcI3SOvS，”1zXcI3SOvS”为其short_seg。</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"> <span class="cm">/*IOS 9 Only*/</span>
+ <span class="o">+</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">continueUserActivity</span><span class="p">:(</span><span class="n">NSUserActivity</span> <span class="o">*</span><span class="p">)</span><span class="n">userActivity</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">userActivity</span><span class="p">.</span><span class="n">activityType</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="n">NSUserActivityTypeBrowsingWeb</span><span class="p">])</span> <span class="p">{</span>
+        <span class="bp">NSString</span> <span class="o">*</span><span class="n">urlStr</span> <span class="o">=</span> <span class="p">[</span><span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span> <span class="n">absoluteString</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">urlStr</span> <span class="nl">containsString</span><span class="p">:</span><span class="s">@&quot;fds.so&quot;</span><span class="p">]){</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">NSRange</span> <span class="n">range</span> <span class="o">=</span> <span class="p">[</span><span class="n">urlStr</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&quot;/&quot;</span> <span class="nl">options</span><span class="p">:</span><span class="n">NSBackwardsSearch</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">range</span><span class="p">.</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span><span class="p">)</span> <span class="p">{</span>
+            <span class="bp">NSString</span> <span class="o">*</span><span class="n">short_seg</span> <span class="o">=</span> <span class="p">[</span><span class="n">urlStr</span> <span class="nl">substringFromIndex</span><span class="p">:(</span><span class="n">range</span><span class="p">.</span><span class="n">location</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)];</span>
+            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// wrong url format</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+ </code></pre></figure>
+
+<h2 id="advanced">高级功能</h2>
+
+<p>###获取用户分享带来的新的安装量及打开次数</p>
+
+<h4 id="section-3">接口协议:</h4>
+
+<ul>
+  <li>
+    <p><strong>URL</strong>：https://fds.so/v2/dsusages/用户申请的AppID/分享者senderID</p>
+  </li>
+  <li>
+    <p><strong>请求方式</strong>: GET</p>
+  </li>
+  <li>
+    <p><strong>返回参数说明</strong>：</p>
+  </li>
+</ul>
+<body>
+    <table class="api_table" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr class="title">
+                <th width="20"></th>
+                <th width="100">名称</th>
+                <th width="80">类型</th>
+                <th>说明</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">new_install</td>
+                <td class="url">int</td>
+                <td>由此分享者所带来的新的APP安装数量</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="url">new_open</td>
+                <td class="url">int</td>
+                <td>由此分享者所带来的已安装的APP打开的次数</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+</body>
+
+<ul>
+  <li><strong>返回Json实例</strong>：
+    <ol>
+      <li>{"new_install":"1","new_open":"2"}</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="section-4">相关参数详解</h4>
+<ul>
+  <li><strong>分享者senderID</strong>: 唯一标识本用户在本App中的分享ID</li>
+</ul>
+
+<hr />
+
+<p>###清空用户分享带来的新的安装量及打开次数</p>
+
+<h4 id="section-5">接口协议:</h4>
+
+<ul>
+  <li>
+    <p><strong>URL</strong>：https://fds.so/v2/dsusages/用户申请的AppID/分享者senderID</p>
+  </li>
+  <li>
+    <p><strong>请求方式</strong>: DELETE</p>
+  </li>
+</ul>
+
+<h4 id="section-6">相关参数详解</h4>
+<ul>
+  <li><strong>分享者senderID</strong>: 唯一标识本用户在本App中的分享ID</li>
+</ul>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="attr-push"><h1 id="attribution-push-">Attribution Push 集成</h1>
+
+<p>深享系统可以提供App安装后用户事件和流量源头的关联分析。这些事件包括DeepShare内置事件的安装和打开，也包括用户自定义的事件，比如购买、分享。</p>
+
+<p>DeepShare归因分析可以针对渠道或者发送者，其中渠道的归因分析可以通过Web来浏览。而对于基于发生者的归因分析，由于数据量巨大，DeepShare提供自动Push功能，及时的将归因分析的结果Push到开发者提供的后台。</p>
+
+<p>该后台只需要提供一个HTTP/RESTful API，能够接受如下POST：</p>
+
+<h2 id="section">数据格式</h2>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;senderID&quot;</span><span class="p">:</span> <span class="s2">&quot;Who is sending the url&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;type of action(ds/open, ds/install, or other user defined action)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;the amount associated with tag&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="err">...</span>
+<span class="p">]</span></code></pre></figure>
+
+<h2 id="field">Field说明</h2>
+<p>senderID：DeepShare URL 的生成者ID，此ID就是SDK中的API getSenderId() 的返回值，开发者可以绑定此ID和自己的用户系统。</p>
+
+<p>tag &amp; value:</p>
+
+<ul>
+  <li>
+    <p>ds/install，表示通过此senderID带来的新安装数量，value为其数量</p>
+  </li>
+  <li>
+    <p>ds/open，表示通过此senderID带来的新打开数量，value为其数量</p>
+  </li>
+  <li>
+    <p>自定义tag，当分享接收方在SDK中调用attribute(tagToValue, DSFailListener)方法时，其value关联到此tag，归因在其发送方并返回</p>
+  </li>
+</ul>
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="faq"><h1 id="universal-link-faq">Universal Link FAQ</h1>
+
+<h2 id="validScenario">Universal Link 生效的场景</h2>
+
+<p>iOS9以上设备，生效场景如下表：</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>应用/浏览器</th>
+      <th>生效情况</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>短信</td>
+      <td>完全支持</td>
+    </tr>
+    <tr>
+      <td>邮件</td>
+      <td>完全支持</td>
+    </tr>
+    <tr>
+      <td>微信</td>
+      <td>分情况</td>
+    </tr>
+    <tr>
+      <td>QQ</td>
+      <td>分情况</td>
+    </tr>
+    <tr>
+      <td>微博</td>
+      <td>分情况</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>分情况</td>
+    </tr>
+    <tr>
+      <td>Chrome</td>
+      <td>分情况</td>
+    </tr>
+    <tr>
+      <td>Twitter</td>
+      <td>分情况</td>
+    </tr>
+    <tr>
+      <td>Facebook</td>
+      <td>分情况</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>分情况:</em></p>
+
+<ol>
+  <li>直接把DeepShare链接拷贝粘贴到浏览器的地址栏，不会触发Universal Link(打开APP)</li>
+  <li>用户在网页中点击链接，如<code>&lt;a href="DeepShareLink"&gt;...&lt;/a&gt;</code>，会打开APP</li>
+  <li>在网页中通过Javascript触发跳转，如（在<code>window.onload</code>或者 通过<code>.click()</code>回调），需要是<strong>用户行为触发</strong>才能跳转</li>
+  <li>在微信、微博、Twitter、Facebook等APP中，只有页面在webview中打开时才会生效，在聊天界面、朋友圈界面、Feed流界面不会打开APP，会在APP内置浏览器中打开网页。通过微信打开分享页面，再在页面中点击DeepShareLink能够触发Universal Link，打开APP</li>
+</ol>
+
+<p>在开发测试时，建议将DeepShare生成的跳转链接拷贝到iOS的短信APP中，以测试Universal Link是否生效，如下图所示</p>
+
+<p><img src="http://qn.fds.so/ds-static/sms.png" alt="Unilink SMS" /></p>
+
+<p>直接点击第一个截图中的链接，可以直接跳转APP。跳转到第三个截图，说明Universal Link生效</p>
+
+<p>长按第一个截图中的链接，会出现第二个截图，如果有红圈所示’在***中打开’，说明Universal Link生效，点击可以跳转到第三个截图</p>
+
+<h2 id="invalidScenario">Universal Link 没有生效的情况</h2>
+
+<h4 id="section">有些场景不会生效</h4>
+<ol>
+  <li>在微信聊天界面、QQ聊天界面等，直接点击DeepShare生成的链接，如（<a href="https://fds.so/d/78d88b80410c926a/6AgV4wSWBi">https://fds.so/d/78d88b80410c926a/6AgV4wSWBi</a>）不会触发Universal Link，不会直接打开APP</li>
+  <li>直接拷贝DeepShare生成的链接，到Safari的地址栏中，不会打开APP，只会在Safari中打开跳转网页</li>
+</ol>
+
+<h4 id="section-1">被用户手动禁用</h4>
+<p>当用通过Universal Link打开APP后，在屏幕右上角会有<code>fds.so</code>，如下图左边第一张截图中红圈所示。当用户点击此处后，会禁用Universal Link，并跳转到下图中间截图的页面。之后，点击DeepShare的链接不会直接打开APP，而是跳到下图中间页面处。在safari中打开下图中间页面，下拉屏幕，可以看到下图最右边的页面，点击<code>打开</code>后，Unversal Link恢复激活状态</p>
+
+<p><img src="http://qn.fds.so/ds-static/unilink-disable.png" alt="Unilink Disable" /></p>
+
+<h4 id="section-2">代码中触发跳转方式错误</h4>
+<p>由于iOS要求是必须是<strong>用户行为</strong>触发Universal Link，推荐的跳转方式是: 元素上绑定用户点击事件，当用户点击元素后，触发跳转。</p>
+
+<p>以下两种情况不能触发Universal Link:</p>
+
+<ol>
+  <li>没有用户点击，通过代码自动跳转</li>
+  <li>用户点击和触发跳转的时间间隔太长</li>
+</ol>
+
+<p>第二种情况的典型错误例子如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">deepShareUrl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">paramsJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#openDeepShareUrl&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://fds.so/v2/url/#appID&#39;</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="nx">paramsJson</span><span class="p">,</span>
+        <span class="nx">xhrFields</span><span class="o">:</span> <span class="p">{</span><span class="nx">withCredentials</span><span class="o">:</span> <span class="kc">true</span><span class="p">,},</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 由于Ajax网络请求会有一定时延，</span>
+            <span class="c1">// 即，用户点击和执行此跳转有一定时间间隔</span>
+            <span class="c1">// 会导致不会触发Unversal Link(直接打开APP)</span>
+            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">url</span>
+        <span class="p">},</span>
+        <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">//出错情况下可以继续用户正常逻辑，可设置一个默认url.</span>
+        <span class="p">},</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></figure>
+
+<h4 id="entitlements--build-target-">entitlements 文件没有包含在 build target 中</h4>
+<p>因为一些原因，某些版本的Xcode 7并不会把entitlements file添加到build中，所以我们需要在project browser中手动将新生成的entitlements file添加到正确的target中，这样这个文件才会build。</p>
+
+<h4 id="section-3">安装时未激活</h4>
+<p>iOS<strong>只会</strong>在APP安装、重装、更新的时候，检查相关配置并激活Universal Link功能。如果所有配置都正确，可以删除重装APP，使Universal Link生效。</p>
+
+</div>
+          
+          <div role="tabpanel" class="tab-pane 
+          
+          " id="one-jump"><h1 id="section">简介</h1>
+
+<p>一下跳转服务是DeepShare的一项轻量级服务，它通过三行JS代码，简化了开发者从Web页面到App页面跳转的所有问题，自动支持适配Universal link, App Link等系统级跳转功能，并通过跳转数据，帮助开发者优化跳转流程。</p>
+
+<div style="text-align:center; width:100%; ">  
+    <img id="appIcon" src="/img/doc-one-jump-p1.png" style="width:40%;" />
+</div>
+
+<h2 id="register">注册账号</h2>
+<p>后台地址为：<a href="http://dashboard.deepshare.io">http://dashboard.deepshare.io</a></p>
+
+<p>提交注册申请后，请前往注册邮箱，在邮件中点击激活链接，即可进入管理平台</p>
+
+<p>首次登入开发者后台后，可以添加新App, 请按照提示一步一步填写相应信息，完成添加。</p>
+
+<p>添加完成后可以在应用信息中查看并修改之前所添加的所有信息。
+其中所生成的AppID作为您的应用在DeepShare的唯一标识，在后继集成环节需要被使用到。</p>
+<div style="text-align:center; width:100%; ">  
+    <img id="appIcon" src="/img/doc-one-jump-p2.png" style="width:70%;" />
+</div>
+
+<h2 id="web">Web端集成</h2>
+
+<h3 id="deepshare-js">引入DeepShare JS库</h3>
+
+<p>在需要调用的页面引入<a href="http://qn.fds.so/deepshare_v2.7.min.js">JS库文件</a> ，其文件地址为：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">http://qn.fds.so/deepshare_v2.7.min.js</code></pre></figure>
+
+<h3 id="section-1">初始化</h3>
+
+<p>初始化DeepShare对象</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// 初始化DeepShare, appid为之前后台添加App后所生成的，可以在后台的“应用信息”里查看</span>
+<span class="kd">var</span> <span class="nx">deepshare</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeepShare</span><span class="p">(</span><span class="s1">&#39;appid&#39;</span><span class="p">);</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">BindParams</span><span class="p">({});</span></code></pre></figure>
+
+<h3 id="section-2">跳转</h3>
+
+<p>将按钮点击事件的回调函数设置为DeepShare的跳转方法start()</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">();</span></code></pre></figure>
+
+<p>完整示例代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="c1">// 初始化DeepShare</span>
+<span class="kd">var</span> <span class="nx">deepshare</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DeepShare</span><span class="p">(</span><span class="s1">&#39;38CCA4C77072DDC9&#39;</span><span class="p">);</span>
+<span class="nx">deepshare</span><span class="p">.</span><span class="nx">BindParams</span><span class="p">({});</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;#GoToAppButton&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 触发跳转</span>
+    <span class="nx">deepshare</span><span class="p">.</span><span class="nx">Start</span><span class="p">();</span>
+<span class="p">})</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre></figure>
+
+<h2 id="ios">iOS端集成</h2>
+
+<h3 id="universal-link">配置Universal Link</h3>
+<p>Universal Link是Apple为iOS 9提供的一个新特性，通过Universal Link，App可以无需打开Safari，直接通过iOS系统启动。</p>
+
+<p><strong>配置developers.apple.com的相关信息</strong>：</p>
+
+<ul>
+  <li>登陆<a href="http://developers.apple.com">developers.apple.com</a>，点击按钮「Certificate, Identifiers &amp; Profiles」，然后再点击「Identifiers」</li>
+</ul>
+<div align="center"><img src="/img/doc-ios-sdk-ul-p2.png" style="width:70%;" /></div>
+<ul>
+  <li>确保开启「Associated Domains」，这个按钮在页面下方，如图所示：</li>
+</ul>
+<div align="center"><img src="/img/doc-ios-sdk-ul-p3.png" style="width:70%;" /></div>
+
+<p><strong>配置XCode:</strong></p>
+
+<ul>
+  <li>在Xcode配置中开启「Associated Domains」
+    <ol>
+      <li>选择相应的target；</li>
+      <li>点击「Capabilities tab」；</li>
+      <li>开启Associated Domains；</li>
+      <li>点击「+」按钮，添加一个Associated Domain，其内容为applinks:fds.so。</li>
+    </ol>
+  </li>
+</ul>
+
+<p>完成后如图所示：</p>
+<div align="center"><img src="/img/doc-ios-sdk-ul-p4.png" style="width:80%;" /></div>
+
+<h3 id="section-3">配置普通浏览器跳转</h3>
+<p>配置完成后用户可以在Safari中调起App。</p>
+
+<ul>
+  <li>修改*-Info.plist（*代表你的工程名字）。 <br />
+添加用于回调的URL Scheme，App在Dashboard注册后会自动生成此值
+    <ol>
+      <li>添加一个叫URL types的键值；</li>
+      <li>点击左边剪头打开列表，可以看到Item 0，一个字典实体；</li>
+      <li>点击Item 0新增一行，从下拉列表中选择URL Schemes，敲击键盘回车键完成插入；</li>
+      <li>更改所插入URL Schemes的值为DashBoard中生成的Scheme。</li>
+    </ol>
+  </li>
+</ul>
+
+<p>完成后如图所示：
+<img src="/img/doc-ios-sdk-p1.png" alt="" /></p>
+
+<p>DashBoard中的iOS Scheme信息：DashBoard&gt;应用信息&gt;iOS应用信息</p>
+<div align="center"><img src="/img/doc-ios-sdk-p2.png" style="width:70%;" /></div>
+
+<h2 id="android">Android端集成</h2>
+
+<p>修改Manifest.xml，在启动Activity中增加DeepShare的intent-filter，这样您的App就可以通过浏览器被唤起</p>
+
+<p>示例代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;manifest</span><span class="err">……</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;application</span><span class="err">……</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;activity</span><span class="err">……</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;intent-filter&gt;</span>
+                <span class="nt">&lt;data</span>
+                    <span class="na">android:host=</span><span class="s">&quot;此处填写DashBoard中显示的host&quot;</span>
+                    <span class="na">android:scheme=</span><span class="s">&quot;此处填写DashBoard中显示的scheme&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/intent-filter&gt;</span>
+        <span class="nt">&lt;/activity&gt;</span>
+    <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span></code></pre></figure>
+
+<p>DashBoard中的Android Scheme信息：DashBoard&gt;应用信息&gt;Android应用信息 <br />
+（请先填写Package Name, Host通常会和Package Name保持一致）</p>
+<div align="center"><img src="/img/doc-android-sdk-p2.png" style="width:70%;" /></div>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="ios-universal-link">iOS Universal Link没有正常工作?</h3>
+<p>可能有多种原因，请依次排查。</p>
+
+<ol>
+  <li>请确认DashBoard中正确填写了Team Id。</li>
+  <li>因为Universal Link是App安装时激活的，如果是从XCode直接Debug版更新安装的，Universal Link可能不会被激活。请完全删除App后重新安装App。</li>
+  <li>请确保entitlements file关联了正确的target。因为一些原因，某些版本的Xcode 7并不会把entitlements file添加到build中，所以我们需要在project browser中手动将新生成的entitlements file添加到正确的target中，这样这个文件才会build。</li>
+</ol>
+
+</div>
+          
+        </div>
+      </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+
+  $(function() {
+    
+      var tab = 'start-integrate';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'deepshare-params';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'web-webapi';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'web-jsapi';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'android-sdk';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'ios-sdk';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'web-sdk';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'attr-push';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'faq';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+      var tab = 'one-jump';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    
+  });
+
+  $(window).scroll(function() {
+      var offsetY = $('.doc-content').offset().top - 20;
+      if ($(".navbar").offset().top > offsetY) {
+          $(".doc-sidebar").addClass("doc-sidebar-fixed");
+      } else {
+          $(".doc-sidebar").removeClass("doc-sidebar-fixed");
+      }
+  });
+
+  $(function() {
+    var anchor_anim = function(pos) {
+      $('html, body').stop().animate({
+          scrollTop: $(pos).offset().top - 70
+      }, 1000, 'easeInOutExpo');
+    };
+
+    var show_tab = function(tab_id) {
+      $(tab_id + '-tab a').tab('show');
+      anchor_anim(tab_id);
+    };
+
+    var go_to_section = function(target) { 
+      window.location.hash = target;
+      $('.section-tab').each(function() {
+        var tab_id = $(this).attr('href');
+        if (target.match(tab_id)) {
+          show_tab(tab_id);
+          if (tab_id != target) {
+            $('#subtab-' + target.split('#')[1]).click();
+          }
+        }
+      });
+    };
+
+    $('.page-link').bind('click', function(event) {
+      var target = $(this).attr('href');
+      go_to_section(target);
+      event.preventDefault();
+    });
+
+    $('.doc-sidebar .nav .nav a').bind('click', function(event) {
+      anchor_anim($(this).attr('href'));
+      window.location.hash = this.hash;
+      event.preventDefault();
+    });
+
+    $('.doc-sidebar .nav .section-tab').bind('click', function(event) {
+      $('html, body').stop().animate({
+          scrollTop: $('.doc-content').offset().top - 20
+      }, 1000, 'easeInOutExpo');
+      event.preventDefault();
+    });
+
+    var hash = document.location.hash;
+    go_to_section(hash);
+  });
+
+</script>
+
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

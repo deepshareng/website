@@ -1,0 +1,59 @@
+ <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{ site.url.dashboard }}"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>

@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div class="nav-offset" style="height: 32px"></div>
+<div class="blog-bg">
+  <div class="blog-top">
+    {% include banner.html %}
+    <div class="blog-top-tags">
+        {% for tag in site.tags %}
+        <a class="blog-tag"
+            href="/blog/tags/{{tag[0]}}">#{{tag[0]}}</a>
+        {% endfor %}
+        
+        <!--
+        <a class="" href="/blog/tags/{{tag[0]}}">#{{tag[0]}}</a>
+        <a class="btn btn-success" href="#">#Deeplink</a>
+        <a class="btn btn-info" href="#">#翻译</a>
+        <a class="btn btn-danger" href="#">#动态</a>
+        <a class="btn btn-warning" href="#">#UniversalLink</a>
+        -->
+    </div>
+
+    <div class="blog-cards-wrapper">
+        {% for post in paginator.posts %} 
+        <section class="blog-card container col-md-3 col-sm-6">
+            <div class="blog-main-wrapper blog-list-area">
+              <a href="{{ post.url }}"><div class="post-cover" style="background-image:url({{ post.cover }});"></div></a>
+                <h4 class="blog-list-title"><a href="{{ post.url }}">{{ post.title }} </a></h4>
+                <p class="blog-list-abstract">
+                    {{ post.description }}
+                </p>
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+    <div style="clear: both;"></div>
+    <div class="blog-main-wrapper text-center">
+        <div class="pagination">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous">
+                <i class="icon-large icon-chevron-sign-left"></i>
+            </a>
+            {% else %}
+            <span class="previous">
+                <i class="icon-large icon-chevron-sign-left"></i>
+            </span>
+            {% endif %}
+            <span class="page_number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">
+                <i class="icon-large icon-chevron-sign-right"></i>
+            </a>
+            {% else %}
+            <span class="next ">
+                <i class="icon-large icon-chevron-sign-right"></i>
+            </span>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+</div>

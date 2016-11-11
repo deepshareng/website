@@ -1,0 +1,72 @@
+<!-- Banner -->
+<script type="text/javascript">
+var BANNER_SCROLL_TIMEOUT = null;
+$(function(){
+    var banner = $("#blog-banner");
+    if(!banner.length){
+        return;
+    }
+    var posts = banner.find(".posts");
+    var dots = banner.find(".dots");
+    var doc = $(document);
+    var win = $(window);
+    var scrollToPost = function(index, skip){
+        var selected = dots.find(".dot.selected").index() || 0;
+        index = index || 0;
+        if(selected === index){
+            return;
+        }
+        dots.find(".dot").removeClass("selected");
+        dots.find(".dot").eq(index).addClass("selected");
+        var last = posts.find(".post").eq(selected);
+        var post = posts.find(".post").eq(index);
+        if(skip){
+            last.hide();
+            post.show();
+        }else{
+            last.fadeOut();
+            post.fadeIn();
+        }
+        $(window).trigger("resize.banner");
+        window.clearTimeout(BANNER_SCROLL_TIMEOUT);
+        BANNER_SCROLL_TIMEOUT = window.setTimeout(function(){
+            scrollToPost(index + 1 < dots.find(".dot").length ? index + 1 : 0);
+        }, 5000);
+    };
+    dots.find(".dot").click(function(){
+        console.log('click');
+        scrollToPost($(this).index());
+    });
+    scrollToPost(0, true);
+});
+</script>
+<div id="blog-banner">
+    <div class="posts">
+        {% for post in site.posts limit:4 %} 
+        {% if forloop.index == 0 %}
+        <div class="post" style="display: block;">
+        {% else %}
+        <div class="post" style="display: none;">
+        {% endif %}
+            <div class="bg" style="background-image:url('{{post.cover}}');"></div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <a class="title" href="{{post.url}}">{{post.title}}</a>
+                    <span class="author"><span class="post-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B, %Y" }}</time></span>&nbsp;&nbsp;•&nbsp;&nbsp;{{post.author}}</span>
+                    <div class="tags">
+                        {% for tag in post.tags %}
+                        |<a class="tag" href="/blog/tags/{{tag}}">#{{tag}}</a>
+                        {% endfor %}|
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+</div>

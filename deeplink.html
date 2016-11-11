@@ -1,0 +1,106 @@
+---
+layout: default
+---
+
+<section id="deeplink-1" class="deeplink">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <img src="/img/deeplink-banner.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="deeplink-2" class="deeplink">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <div class="title-container">
+                        <h3 class="title-text"><span class="">深度链接</span></h3>
+                        <div class="sub-circle sub-circle-left"> </div>
+                        <div class="sub-circle sub-circle-right"> </div>
+                    </div>
+                    <h4 class="sub-title"><span class="">通过不同的链接调入不同的APP页面</span></h4>
+
+                    <div class="img-bg">
+                        <img src="/img/deeplink-install.png">
+                        <div id="btn-a" class="active btn-circle">
+                            <span class="btn-circle-text">A</span>
+                        </div>
+                        <div id="btn-b" class="btn-circle">
+                            <span class="btn-circle-text">B</span>
+                        </div>
+                        <img id="deeplink-page-a" class="screen-shot" src="/img/deeplink-a.png">
+                        <img id="deeplink-page-b" class="hide screen-shot" src="/img/deeplink-b.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="deeplink-4" class="deeplink">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <div class="head-container">
+                        <div class="head-left-container">
+                            <h3 class="title-text"><span class="">延迟深度链接</span></h3>
+                            <div class="sub-circle sub-circle-left"> </div>
+                            <div class="sub-circle sub-circle-right"> </div>
+                            <div class="sub-circle sub-circle-middle"> </div>
+                        </div> 
+                        <div class="head-right-container">
+                            <h3>
+                                <span class="divider">|</span>
+                                <span>进阶版深度链接</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <h4 class="sub-title"><span
+                            class="">未下载的APP也可以跳转的深度链接</span></h4>
+                    <img src="/img/deeplink-defered.png">
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-half-circle"> </div>
+</section>
+<section id="deeplink-5" class="deeplink">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <div class="title-container">
+                        <h3 class="title-text">
+                            <img class="deepshare-icon" src="/img/deepshare.png"><span class="divider">|</span><span>进阶延迟深度链接</span>
+                        </h3>
+                    </div>
+                    <h4 class="sub-title"><span
+                            class="">在延迟深度链接的基础上，可以增加渠道信息，分享发送方消息，定制下载流程，并专门针对微信分享进行优化</span></h3>
+                    <img src="/img/deeplink-advance.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function(){
+        $('#deeplink-2 #btn-a').on('click mouseover', function(){
+            $('#deeplink-2 .btn-circle').removeClass('active'); 
+            $(this).addClass('active');
+            $('#deeplink-2 #deeplink-page-a').removeClass('hide'); 
+            $('#deeplink-2 #deeplink-page-b').addClass('hide'); 
+        }); 
+        $('#deeplink-2 #btn-b').on('click mouseover', function(){
+            $('#deeplink-2 .btn-circle').removeClass('active'); 
+            $(this).addClass('active');
+            $('#deeplink-2 #deeplink-page-b').removeClass('hide'); 
+            $('#deeplink-2 #deeplink-page-a').addClass('hide'); 
+        }); 
+    });
+</script>

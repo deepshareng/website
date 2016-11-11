@@ -1,0 +1,54 @@
+# Site settings
+title: DeepShare - Share your App with the world
+description: "DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。"
+#description: "DeepShare allows App developers to make the sharing and welcoming flow of user much more easy and brilliant. Monitoring channel data, optimising operation strategy, and building expanding user group."
+keywords: "deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker"
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark: '#000000'
+  primary-white: '#fff'
+  ebo-blue-color: '#2ed1f9'
+  links: '#219ab3'
+
+# Footer settings
+footer: DeepShare
+
+# url settings
+url:
+  dashboard: https://dashboard.deepshare.io
+  ios-sdk-link: http://qn.fds.so/deepshare_sdk_ios_v2.2.0.zip
+  android-sdk-link: https://deepshare.blob.core.chinacloudapi.cn/sdk/deepshare_android_v2.1.1.zip
+  js-sdk-link: http://qn.fds.so/deepshare_v2.7.min.js
+
+# mail settings
+mail: 
+    bd: 'mailto:bd@deepshare.io?subject=【您的App名称，可不填】&body=感谢阁下对于DeepShare的兴趣。%0d%0a如有关于如下任何方面的需求：%0d%0a
+%0d%0a1.  DeepShare的功能；%0d%0a2.  DeepShare的接入和使用；%0d%0a3.  价格政策；%0d%0a4.  用户隐私政策、数据安全性等。%0d%0a%0d%0a或其他需求，烦请邮件与我们垂询。%0d%0a
+%0d%0a再次感谢！'
+
+# About tags
+tagcolors:
+    - success
+    - primary
+    - warning
+    - info
+    - default
+    - danger
+
+# Build settings
+highlighter: pygments
+markdown: kramdown
+permalink: pretty
+
+exclude:
+    - gulpfile.js
+
+collections:
+    - devdocs
+
+#gems: [jekyll-paginate]
+
+paginate: 12
+paginate_path: "/blog/page:num"
+

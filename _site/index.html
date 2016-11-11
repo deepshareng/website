@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>DeepShare - Share your App with the world</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <section id="index-panel">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div id="index-text" class="intro-board"> 
+                    <p class="index-title">一款延迟深度链接的SDK</p>
+                    <p class="index-sub-title">帮助开发者打破WEB和APP之间的信息壁垒，实现APP的内容直达及监测</p>
+                </div>
+                <div class="intro-board"> 
+                    <img src="/img/index.png">
+                    <div class="share-cell" id="share-left"></div>
+                    <div class="share-cell" id="share-right"></div>
+                    <img id="transfer-btn" src="/img/transfer-btn.png">
+                    <a id="demo-show-btn"
+                       data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='/img/demo-qrcode-tlc.png'>"
+                       href="javascript:;"><span class="show-demo-btn login-button ebo-blue-button">体验DEMO</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img id="share-left-img-loader" src="/img/share-left-kq.png" style="display:none;">
+</section>
+
+<section id="video-intro">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board video-text">
+                    <h2><span>DeepShare, 为APP用户, 更为APP开发者</span></h2>
+                    <!-- <p>观看演示视频</p> -->
+                </div>
+            </div>
+        </div>
+        <a class="video-play"
+            href="https://deepshare.blob.core.chinacloudapi.cn/video/growth-hacker.mp4"
+            data-options="width: 848, height: 480, html5video: {poster: '/img/video-preview-poster.png', autoplay: true}">
+          <img src="/img/play-btn-white.png" id="video-button"/>
+        </a>
+    </div>
+</section>
+
+<section id="deeplink-intro">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <img src="/img/deeplink-intro.png">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="feature-title">一下跳转</div>
+                        <div class="feature-desc">一站式解决网页跳转APP问题</div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="feature-title">深度分享</div>
+                        <div class="feature-desc">更顺畅的用户体验</div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="feature-title">渠道分析</div>
+                        <div class="feature-desc">更全面的数据监测</div>
+                    </div>
+                    <div class="btn-container col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <a href="/redirect-once"><span class="ds-normal-btn ebo-blue-button">了解更多</span></a>
+                    </div>
+                    <div class="btn-container col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <a href="/deeplink"><span class="ds-normal-btn ebo-blue-button">了解更多</span></a>
+                    </div>
+                    <div class="btn-container col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <a href="/marketing"><span class="ds-normal-btn ebo-blue-button">了解更多</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="growth-panel">
+    <div class="panel-bg">
+        <div class="container text-center intro-section max-width">
+            <div class="row">
+                <div class="intro-board">
+                    <div class="board-title">
+                        <h3><span class="underline-title">数据表现</span></h3>
+                        <p> 全面提升APP各项统计数据 </p>
+                    </div>
+                    <div class="left-panel">
+                        <div id="block-1" class="animate animation-block block-1"></div>
+                        <div id="block-2" class="animate animation-block block-2"></div>
+                        <div id="block-3" class="animate animation-block block-3"></div>
+                        <div id="block-4" class="animate animation-block block-4"></div>
+                        <div id="block-5" class="animate animation-block block-5"></div>
+                        <div id="block-6" class="animate animation-block block-6"></div>
+                        <img src="/img/growth-left-panel.png">
+                    </div>
+                    <div class="right-panel">
+                        <div class="item-block">
+                            <div class="icon-block">
+                                <img src="/img/growth-download.png">
+                                <p>下载-激活转化率</p>
+                            </div>
+                            <span class="word-plus">+</span>
+                            <span id="download-num" class="word-num">0</span>
+                            <span class="word-percent">%</span>
+                        </div>
+                        <div class="item-block">
+                            <div class="icon-block">
+                                <img src="/img/growth-stay-1d.png">
+                                <p>次日留存</p>
+                            </div>
+                            <span class="word-plus">+</span>
+                            <span id="stay-num" class="word-num">0</span>
+                            <span class="word-percent">%</span>
+                        </div>
+                        <div class="item-block">
+                            <div class="icon-block">
+                                <img src="/img/growth-stay-7d.png">
+                                <p>七日留存</p>
+                            </div>
+                            <span class="word-plus">+</span>
+                            <span id="stay-num-7d" class="word-num">0</span>
+                            <span class="word-percent">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="feature-panel">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <div class="board-title">
+                        <h3><span class="underline-title">技术特点</span></h3>
+                        <p> 极简接口，两小时极速接入 </p>
+                    </div>
+                    <div class="feature-item col-md-3 col-sm-6">
+                        <img src="/img/feature-icon-01.png">
+                        <div>
+                            <p>生成DeepShare LINK并将绑定自定义参数</p>
+                        </div>
+                    </div>
+                    <div class="feature-item col-md-3 col-sm-6">
+                        <img src="/img/feature-icon-02.png">
+                        <div>
+                            <p>通过点击DeepShare LINK下载或打开APP</p>
+                        </div>
+                    </div>
+                    <div class="feature-item col-md-3 col-sm-6">
+                        <img src="/img/feature-icon-03.png">
+                        <div>
+                            <p>打开APP时获取所绑定的自定义参数</p>
+                        </div>
+                    </div>
+                    <div class="feature-item col-md-3 col-sm-6">
+                        <img src="/img/feature-icon-04.png">
+                        <div>
+                            <p>APP根据自定义参数进行场景恢复</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="customer-panel" class="">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <div class="board-title">
+                        <h3><span class="underline-title">我们的客户</span></h3>
+                        <p>期待你的加入</p>
+                    </div>
+                    <div class="board-body">
+                        <img src="/img/customers.png">
+                        <a target="_blank" class="start-use" href="https://dashboard.deepshare.io/">
+                            <img src="/img/start-use.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="branch-panel" class="">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <img id="branch-background" src="/img/cooperate-branch.png">
+                    <a href="https://branch.io" target="_blank">
+                        <img id="branch-icon" src="/img/branch-icon.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
+</section>
+<section id="partner-intro">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+        <div class="intro-board">
+            <h3 class="board-title "><span class="underline-title">合作伙伴</span></h3>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/zhenfund.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/team.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/juejin.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/linque.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/techcode.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://36kr.com/p/5043872.html"><img src="/img/partner-logo/36kr.png"> </a></div>
+
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.lieyunwang.com/archives/149723"><img src="/img/partner-logo/lieyun.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/tech.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.csdn.net/article/2015-12-08/2826417-jinjiang-deepshare"><img src="/img/partner-logo/csdn.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/weimao.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.pencilnews.cn/?p=1452"><img src="/img/partner-logo/qianbi.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.huodongxing.com/event/9316312149000"><img src="/img/partner-logo/huodongxing.png"> </a></div>
+
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/pingxx.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/ucloud.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/red.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/100offer.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/qidiancaptal.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.xtecher.com/Website/Article/view?aid=755"><img src="/img/partner-logo/xtecher.png"> </a></div>
+
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.lagou.com/gongsi/73653.html"><img src="/img/partner-logo/lagou.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.itjuzi.com/company/29989"><img src="/img/partner-logo/itorange.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.oschina.net"><img src="/img/partner-logo/oschina.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.mvac.cn/zh-CN/Enterprise/Index6"><img src="/img/partner-logo/ms.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="https://segmentfault.com/o/www_deepshare_io"><img src="/img/partner-logo/seg.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/3wspace.png"> </a></div>
+
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/technode.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="http://www.bosszhipin.com/home?sid=sem_bm_spe_pinzhuan&pkn=pinpai"><img src="/img/partner-logo/bosshr.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/tmt_logo.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/maimai.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/3whr.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item"> <a href="javascript:;"><img src="/img/partner-logo/wenwen.png"> </a></div>
+<div class="col-md-2 col-sm-3 col-xs-6 partner-item active"> <a href="https://zhugeio.com/"><img src="/img/partner-logo/zhugeio.png"> </a></div>
+        </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="number-panel">
+    <div class="panel-bg">
+        <div class="container text-center intro-section">
+            <div class="row">
+                <div class="intro-board">
+                    <p class="append-title">基于DeepShare技术的链接已经有</p>
+                    <p id="ds-total-pv" class="real-time-number">000,000,000</p>
+                    <p class="append-title">条在传播</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="js/ilightbox.packed.js"></script>
+
+<script>
+        $(function() {
+            var INDEX_ANIMATION_PLAYING = false;
+
+            $(".video-play").iLightBox();
+
+            $("[data-toggle='popover']").popover();
+
+
+            // animation by pure javascript
+            var playAnimation = function(animationConf, n, selector, callback) {
+
+                var getPercentStr = function(x) {
+                    return '' + (x * 100) + '%';
+                }
+
+                var stepForward = function(i) {
+                    $(selector).css('background-position', getPercentStr(i/n));
+                    if (i < n) {
+                        setTimeout(function(){
+                            stepForward(i + 1); 
+                        }, animationConf[i] * 60);
+                    } else {
+                        callback();
+                    }
+                } 
+
+                stepForward(0);
+            }
+
+
+
+            var playLeft = function() {
+                var animationConf = [18, 18, 2, 18, 2,
+                                    2, 18, 2, 2, 1,
+                                    1, 18, 2, 2, 18,
+                                    18, 18, 18, 18] 
+                // Tricky!! n+1 pictures
+                var n = animationConf.length - 1;
+
+                playAnimation(animationConf, n, "#share-left", playTransfer);
+            }
+
+            var playTransfer = function() {
+                $('#transfer-btn').addClass('animate');
+            }
+            var freezeBtnAtEnd = function() {
+                $('#transfer-btn').css('top', '18%');
+                $('#transfer-btn').css('left', '68.3%');
+            }
+            var playRight = function() {
+                var animationConf = [18, 18, 18, 9, 1,
+                                    1, 1, 1, 18, 18,
+                                    3, 3, 3, 18, 1,
+                                    1, 1, 1, 1, 9,
+
+                                    18, 1, 1, 1, 18,
+                                    3, 3, 1, 18, 1, 
+                                    1, 1, 1, 1, 1,
+                                    9, 18, 1, 1, 1,
+                                    1, 18, 18] 
+
+                // Tricky!! n+1 pictures
+                var n = animationConf.length - 1;
+
+                playAnimation(animationConf, n, "#share-right", restart);
+            }
+
+            var resetAll = function() {
+                $('#share-left').css('background-position', '0%');
+                $('#share-right').css('background-position', '0%');
+                $('#transfer-btn').removeClass('animate');
+                $('#transfer-btn').css('top', '70.6%');
+                $('#transfer-btn').css('left', '28%');
+            }
+
+            var restart = function() {
+                setTimeout(function(){
+                    resetAll(); 
+                    playLeft();
+                }, 2000);
+            }
+
+            var checkAnimationStatus = function() {
+                if(!INDEX_ANIMATION_PLAYING) {
+                    INDEX_ANIMATION_PLAYING = true;
+                    restart();   
+                }
+            }
+            // init strike
+            $('#share-left-img-loader').on('load', function() {
+                if(!INDEX_ANIMATION_PLAYING) {
+                    INDEX_ANIMATION_PLAYING = true;
+                    restart();   
+                }
+            });
+
+
+            $('#transfer-btn').on('webkitAnimationEnd animationend', function() {
+                freezeBtnAtEnd();
+                playRight();
+            });
+
+            // growth panel
+            function countDownload(n) {
+                setTimeout(function() {
+                    $('#download-num').html(42 - n);
+                    if (n > 0 && ANIMATION_STARTED == true) {
+                        countDownload(n - 3);
+                    }
+                }, 100);
+            }
+
+            function countStay(n) {
+                setTimeout(function() {
+                    $('#stay-num').html(104 - n);
+                    if (n > 0 && ANIMATION_STARTED == true) {
+                        countStay(n - 3);
+                    }
+                }, 100);
+            }
+
+            function countStay7d(n) {
+                setTimeout(function() {
+                    $('#stay-num-7d').html(114 - n);
+                    if (n > 0 && ANIMATION_STARTED == true) {
+                        countStay7d(n - 3);
+                    }
+                }, 100);
+            }
+
+            var ANIMATION_STARTED = false;
+            var stopAnimation = function() {
+                $('.animation-block').removeClass('animate'); 
+                ANIMATION_STARTED = false;
+            }
+            var restartAnimation = function() {
+                stopAnimation();
+                $('.animation-block').addClass('animate'); 
+                ANIMATION_STARTED = true;
+                countDownload(42);
+                countStay(102);
+                countStay7d(114);
+            }
+
+            $(window).on("scroll", function() {
+                if (-$("#growth-panel").height() < $("#growth-panel").offset().top - $(document).scrollTop()
+                        && $("#growth-panel").offset().top - $(document).scrollTop() < $(window).height()) {
+                    if (ANIMATION_STARTED === false) {
+                        restartAnimation();
+                    }
+                } else {
+                    if (ANIMATION_STARTED === true) {
+                        stopAnimation();
+                    }
+                }
+            });
+
+            setInterval(checkAnimationStatus, 10000);
+
+            var totalPv = 0;
+            function refreshPv() {
+                $.ajax({
+                    url: 'http://dashboard.deepshare.io/statistics/pv-total',
+                    type: 'GET',
+                    success: function(data) {
+                        //$('#ds-total-pv').html(data.total_pv);  
+
+
+                        var options = {
+                              useEasing : true, 
+                              useGrouping : true, 
+                              separator : ',', 
+                              decimal : '.', 
+                              prefix : '', 
+                              suffix : '' 
+                        };
+                        var demo = new CountUp("ds-total-pv", totalPv, data.total_pv, 0, 2.5, options);
+                        demo.start();
+                        totalPv = data.total_pv; 
+                    },
+                    dataType: 'json',
+                });
+
+            }
+
+            refreshPv();
+            setInterval(refreshPv, 10000);
+        });
+
+
+        // Show pv number
+
+</script>
+
+
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

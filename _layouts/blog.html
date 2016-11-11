@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+        {% include js.html %}
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        {% include nav.html %}
+        <div class="nav-offset" style="height: 40px"></div>
+        <div class="">
+            <div class="container">
+                <div class="blog-article-area">
+                    <div class="back-to-blog">
+                        <a href="/blog"><i class="icon  icon-chevron-left"></i>&nbsp;&nbsp;Back to Blog</a>
+                    </div>
+                    <h1 class="blog-title">{{ page.title }}</h1>
+                    <div class="blog-article-top">
+                        <div class="blog-article-tags">
+                            {% for tag in page.tags %}
+                            <a class="btn btn-{{ site.tagcolors[forloop.index0] }}"
+                                href="/blog/tags/{{tag}}">#{{tag}}</a>
+                            {% endfor %}
+                        </div>
+                        <div class="blog-article-time">
+                            <span>{{ page.author }}</span> 
+                                •
+                            <span class="entry-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></span>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div class="blog-article-body">
+                        {{ content }}
+                    </div>
+                </div>
+
+                <hr>
+                <div class="blog-main-wrapper text-center">
+                    <nav class="pagination" role="navigation">
+                    {% if page.previous %}
+                          <a href="{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">上一篇</a>
+                    {% else %}
+                        <span class="btn">上一篇</span>
+                    {% endif %}
+                    {% if page.next %}
+                          <a href="{{ page.next.url }}" class="btn" title="{{ page.next.title }}">下一篇</a>
+                    {% else %}
+                        <span class="btn">下一篇</span>
+                    {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% include footer.html %}
+    </body>
+</html>

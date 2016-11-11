@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Share Restful API Example</title>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <style type="text/css">
+    .btn {
+      margin-top: 5px;
+    }
+    .row {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row col-lg-6 col-lg-offset-1">
+      <h2>Deep Share Restful API Example</h2>
+    </div>
+    <section>
+      <div class="row col-lg-6 col-lg-offset-1">
+        <h4>Request</h4>
+        <pre class="request">Perform a action!</pre>
+        <br>
+        <h4>Response</h4>
+        <pre class="response">Perform a action!</pre>
+      </div>
+    </section>
+    <section>
+      <div class="row col-lg-6 col-lg-offset-1">
+        <h3>Action</h3>
+        <div class="group">
+          <button id="openurl" class="btn btn-info">OpenURL</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <script type="text/javascript">
+
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+
+
+    var request = $('.request');
+    var response = $('.response');
+    var deepshareurl;
+
+    var params = {
+        channels : ["deepshare_demo_test"],
+        inapp_data : getParameterByName('inapp_data'),
+        sender_id : getParameterByName('sender_id')
+    }
+
+    function generateUrl(){
+      response.html("Waiting for response");
+        var paramsJson = JSON.stringify(params)
+        request.html("Deep Share link(" + paramsJson + ");");
+        $.post('https://fds.so/v2/url/' + getParameterByName('appid'), paramsJson, function(result) {
+            response.html(JSON.stringify(result));
+            deepshareurl = result.url;
+        }).error(function() {
+          //Do your own bussiness logic in case that our servive is down.
+        });
+    }
+
+    window.onload = function () {
+      generateUrl();
+    }
+
+    $('#openurl').click(function() {
+        location.href = deepshareurl;
+    });
+
+</script>
+</body>
+</html>

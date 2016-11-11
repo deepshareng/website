@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>DeepShare - Share your App with the world</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <!-- FAQ Section -->
+<section id="faq">
+  <div class="faq-banner">
+    <div class="container faq-header">
+      <div class="row">
+        <h1 class="faq-title">FAQ</h1>
+        <p class="faq-desc">Helpful answers for aspiring deep linkers</p>
+        <a href="mailto:bd@deepshare.io?subject=【您的App名称，可不填】&body=感谢阁下对于DeepShare的兴趣。%0d%0a如有关于如下任何方面的需求：%0d%0a %0d%0a1.  DeepShare的功能；%0d%0a2.  DeepShare的接入和使用；%0d%0a3.  价格政策；%0d%0a4.  用户隐私政策、数据安全性等。%0d%0a%0d%0a或其他需求，烦请邮件与我们垂询。%0d%0a %0d%0a再次感谢！" class="ebo-button ebo-white-button">更多资讯</a>
+      </div>
+    </div>
+  </div>
+  <div class="container faq-md-header">
+    <div class="col-lg-10 col-lg-offset-1" style="padding-top:40px;">
+      <div class="text-center">
+        <h1><img height=30 style="margin-right:5px; margin-top:1px;" src="/img/faq-icon.png"/><span class="underline-title">FAQ</span></h1>
+      </div>
+    </div>
+  </div>
+  <div class="container faq-content">
+    <ol class="faq-navbar">
+    
+      <li class="faq-list"><a href="#faq-p1" class="faq-q">什么是深度链接？</a>
+          <div id="faq-p1" class="hidden faq-a"> <p>每个移动APP都是独立的，内容和服务之间的链接消失了。应用搜索是断裂的，APP的内容被局限在每个APP内，从一定程度上说，每个APP都建立起自己的城墙。链接和数据不能在APP之间交换，我们在电脑网页所监测的用户意图，广告曝光和其它盈利的指标不能在移动端很好地进行。</p><p>这时就需要深度链接。深度链接让APP开发者能够链接到应用内特定的页面，比如说，人们通过链接可以直接到达宾馆预订APP中特定的一个宾馆，而不是这家公司的移动端网页或是APP的首页。这是一点很小的改变，但是有着深远的影响。</p><p>现在，APP安装广告这么赚钱的一个原因就是他是今天的开发者投放广告的最佳选择。如果你不能链接到APP内特定的商品，那么你的广告就需要：</p><p>1. 引导人们安装APP</p><p>2. 用户使用APP</p><p>因为人们看到APP中商品的唯一途径就是浏览这个APP。但是通过深度链接，可以直接从广告到达商品，移动应用开发者可以再现网页端的体验，让移动广告体验开辟一个全新的局面。这种转变已经吸引了大量的关注。Facebook, Google, Twitter 都宣布了不同程度上支持深度链接的措施。</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p2" class="faq-q">为什么选择我们？</a>
+          <div id="faq-p2" class="hidden faq-a"> <p>我们是中国领先的中文应用内搜索引擎解决方案提供商，致力于通过机器智能提高移动产品的用户体验。整个团队成员来自于国内外顶尖高校，世界级顶尖公司，在移动互联网技术领域有着丰富的经验积累。曾先后入驻3W孵化器和微软创投加速器（MVA），入选2015年北京科技型中小企业促进专项创业类项目、2015OTEC创业大赛中国区第一名等。</p><p>首先，我们在自然语言处理方面的优势，应用GPU集群的自然语言处理模块，从而可以实现计算速度200倍以上的巨大飞跃。</p><p>其次，在移动搜索和自然语言处理领域拥有多项国际专利。主要服务和研究领域包括：应用内搜索（In-APP Search）、深度链接（Deep Linking）、应用内爬虫技术（Crawler）、智能输入法(IME)、基于Linux的容器技术(Containers)、容错分布式框架(Fault-Tolerant Distributed Framework)、自然语言处理研究（NLP）等。其中，深度链接技术产品DeepShare现已面向内容分享类、电商类、社交类等各种需要深度分享的APP开发者使用。通过减少跨平台跨页面不必要跳转来简化APP社会化分享流程、降低用户导入门槛，从而提供更好的用户体验和更丰富的产品运营与营销可能。</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p3" class="faq-q">深度链接带来的机遇（或者带来的商机）？</a>
+          <div id="faq-p3" class="hidden faq-a"> <p>Deep Linking技术对于移动应用、移动广告、移动商务将产生巨大的影响。</p><p>DeepShare使用深度链接（Deep Linking）技术，帮助用户群更快的自然增长。DeepShare令用户分享应用内容页时，直接跳转至相关页面，若无应用则可选择性地下载应用并跳转。DeepShare帮助开发者避免了打开应用后前篇一律页面的糟糕用户体验，防止繁琐跳转步骤造成的用户流失，令分享流程更加顺畅，提高用户活跃度及转化率。</p><p>深度链接的技术帮助开发者精准追踪用户来源及行为，并在此基础上衍生出DeepShare的两大服务——分享得红包及地推神器。DeepShare可追踪到每个分享者带来的流量，根据应用推广的营销政策，可自动奖励分享者相应的红包，刺激用户分享应用页面，提高产品推广的传播效率；地推神器精准地监测地推营销效果，计算投资回报率，从而帮助开发者制定更佳的营销策略。</p><p>另外，DeepShare个性化的分享展示及标语、可视化分析平台、搜索广告投放等功能，助力提升用户应用内的体验，令搜索广告、朋友圈推广更加便捷。而开发者在整合DeepShare功能时仅需要几行代码就能轻松实现，全面解决用户使用跳跃和数据监测断裂等问题，令用户群更快更自然地增长。</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p4" class="faq-q">深度链接所带来的用户体验的提升？</a>
+          <div id="faq-p4" class="hidden faq-a"> <img width=100% style="margin-bottom:35px;" src="/img/workflow.jpg"/><p>如上图演示的渠道，与以往跳转路径只能打开APP的默认首页不同，以Android系统为例，当你在移动端口点击了一个连接，深度链接将会自动匹配，如果你的移动端已经装了相关的应用，将会实现可以直接跳转到链接所对应的页面。而如果还没有安装的话，在下载之后同样可以直接跳转到用户之前所搜索的页面，而非是APP默认的首页。</p><p>通过这样，一方面大大的减少了用户在APP内部重新进行检索的时间，显著提升了使用的流畅度；另一方面对于APP的开发者及所有者来说，APP内的内容的可视性，可被检索程度，以及用户的转化率都将大大提升。</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p5" class="faq-q">我们的技术可以接入哪些系统？</a>
+          <div id="faq-p5" class="hidden faq-a"> <p>在传统的搜索中，所有的APP就像是一座座孤岛，而现在我们所要做的事情就是希望这些美丽的岛屿被更容易地检索到，以及内部的风景会被更容易的展现出来。</p><p>从操作系统上来说，无论是Android还是iOS的移动端口，我们的DeepShare都可以接入。</p><p>从应用的种类来讲，DeepShare可以广泛地应用在所有应用场景，从社交，生活，音乐以及旅行等等，索引几乎任何内容有关的应用程序，DeepShare可以帮助用户更容易发现检索到这些服务。DeepShare的开发就是为了帮助APP中的内容更容易被发现，从而使APP更容易地被推广。</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p6" class="faq-q">我们如何保障客户的隐私？</a>
+          <div id="faq-p6" class="hidden faq-a"> <p>所有通过DeepShare的链接的数据都是安全的，我们不会要求用户提供关于APP的隐私信息或者任何的敏感信息，比如说用户数据等信息。所以，不会存在任何隐私侵权的问题，我们所做的事情只是将这些链接进行分类，并且为这些原始数据贴标签。</p><p>您的信息是绝对安全的，并且您对于提供给我们什么数据具有选择权和决定权。我们的系统只会使用一些例如从操作系统，浏览器指向网站或者APP的公共数据。通过把这些数据和一些苹果和谷歌分别设计出来的IDFA和GAID标识符进行连接来保证客户的隐私。我们有很高的精度来确保对应的用户在APP内会看到对应的正确的内容。我们只是整合足够的数据来知道这些用户是通过哪些渠道来下载了APP，并且在APP内的表现如何。在整个的过程中完全不会涉及到去搜集用户个人的具体信息。</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p7" class="faq-q">DeepShare如何帮助您的APP使用iOS 9的Universal Link的功能？</a>
+          <div id="faq-p7" class="hidden faq-a"> <p>随着iOS 9的发布，其中的Universal Link功能吸引了不少眼球，DeepShare和iOS 9完全适配，而且将DeepShare和Universal Link一起使用，将会为您带来更好的用户体验。</p><p>Universal Link是什么？Universal Link顾名思义，就是APP希望用同一个Link同时指向相同内容的网页和APP的内容页。已安装APP的用户点击链接后可直接跳转到APP里的相关页面，而省去了中间打开Safari的一步。DeepShare的SDK已经把Universal Link自动集成在当中。除了Universal Link的功能外，我们还有以下功能：</p><p>1. 渠道质量追踪</p><p>Universal Link并不能解决渠道质量追踪的问题。DeepShare的免费Dashboard功能，让您在一个页面上全面掌握运营推广渠道的质量追踪，不但知道所有用户从哪里来，而且还能知道这些用户是否在APP里产生了购买行为，为产品设计和运营增加非常多的可能性</p><p>2. 设置更简单</p><p>已经集成好Universal Link的SDK大大简化了您设置Universal Link的时间，无需阅读大量的文档。如果您有什么问题，有我们随时的技术支持！</p><p>3. 对于主推APP的公司也能使用Universal Link的功能</p><p>如果您没有网页端的话，如何生成一个link都是个挺头疼的问题。使用DeepShare的SDK，可以让没有网站的您，也和其他有网站的公司一样，享受Universal Link自动跳转的功能</p><p>4. 全平台适用性</p><p>Universal Link只能在iOS使用，安卓平台需要使用类似产品叫做APPLink，也需要大量时间的设置和适配。DeepShare提供的服务，可以让您的APP在IOS和安卓平台都能做到深度分享内容和场景还原</p> </div></li>
+    
+      <li class="faq-list"><a href="#faq-p8" class="faq-q">服务过程所产生的费用?</a>
+          <div id="faq-p8" class="hidden faq-a"> <p>我们为客户所提供的深度链接的服务是终身免费的。并且在每个月15万次以内的跳转流量是完全免费的。超过15万次的部分，由于会有服务器耗损的问题，请用户主动联系我们，我们会酌情收取一定的费用。</p> </div></li>
+    
+    </ol>
+  </div>
+</section>
+
+<script type="text/javascript">
+  $(function() {
+    $('.faq-navbar .faq-list a').bind('click', function(event) {
+      $('.faq-navbar .faq-list .faq-a').addClass('hidden');
+      $($(this).attr('href')).removeClass('hidden');
+    });
+  });
+</script>
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

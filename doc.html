@@ -1,0 +1,116 @@
+---
+layout: default
+---
+<!-- Highlight JS -->
+<script src="/js/highlight.pack.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+
+<!-- Docs Section -->
+<section id="documentation">
+  <div class="doc-banner">
+    <div class="container download-section">
+        <p class="download-block"><span class="download-title"> SDK 下载 </span></p>
+        <p class="download-block"><a href="{{ site.url.ios-sdk-link }}" class="download-btn ebo-white-button"><i class="icon-apple" style=""></i> iOS 下载</a></p>
+        <p class="download-block"><a href="{{ site.url.android-sdk-link }}" class="download-btn ebo-white-button"><i class="icon-android"></i> Android 下载</a></p>
+    </div>
+  </div>
+  <div class="container doc-content">
+      <div class="col-lg-3">
+        <!-- Nav tabs -->
+        <nav class="doc-sidebar">
+          <ul class="nav nav-pills nav-stacked" role="tablist">
+            {% for post in site.devdocs %}
+            <li role="" id = "{{ post.tab }}-tab" class="nav-first-level"
+            {% if post.tab == site.devdocs[0].tab %} class="active" {% endif %}
+            ><a class="section-tab" href="#{{ post.tab }}" aria-controls="{{ post.tab }}" role="tab" data-toggle="tab">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Tab panel -->
+        <div class="tab-content">
+          {% for post in site.devdocs %}
+          <div role="tabpanel" class="tab-pane 
+          {% if post.tab == site.devdocs[0].tab %} active {% endif %}
+          " id="{{ post.tab }}">{{ post.content }}</div>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+
+  $(function() {
+    {% for post in site.devdocs %}
+      var tab = '{{ post.tab }}';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '" id="subtab-' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    {% endfor %}
+  });
+
+  $(window).scroll(function() {
+      var offsetY = $('.doc-content').offset().top - 20;
+      if ($(".navbar").offset().top > offsetY) {
+          $(".doc-sidebar").addClass("doc-sidebar-fixed");
+      } else {
+          $(".doc-sidebar").removeClass("doc-sidebar-fixed");
+      }
+  });
+
+  $(function() {
+    var anchor_anim = function(pos) {
+      $('html, body').stop().animate({
+          scrollTop: $(pos).offset().top - 70
+      }, 1000, 'easeInOutExpo');
+    };
+
+    var show_tab = function(tab_id) {
+      $(tab_id + '-tab a').tab('show');
+      anchor_anim(tab_id);
+    };
+
+    var go_to_section = function(target) { 
+      window.location.hash = target;
+      $('.section-tab').each(function() {
+        var tab_id = $(this).attr('href');
+        if (target.match(tab_id)) {
+          show_tab(tab_id);
+          if (tab_id != target) {
+            $('#subtab-' + target.split('#')[1]).click();
+          }
+        }
+      });
+    };
+
+    $('.page-link').bind('click', function(event) {
+      var target = $(this).attr('href');
+      go_to_section(target);
+      event.preventDefault();
+    });
+
+    $('.doc-sidebar .nav .nav a').bind('click', function(event) {
+      anchor_anim($(this).attr('href'));
+      window.location.hash = this.hash;
+      event.preventDefault();
+    });
+
+    $('.doc-sidebar .nav .section-tab').bind('click', function(event) {
+      $('html, body').stop().animate({
+          scrollTop: $('.doc-content').offset().top - 20
+      }, 1000, 'easeInOutExpo');
+      event.preventDefault();
+    });
+
+    var hash = document.location.hash;
+    go_to_section(hash);
+  });
+
+</script>

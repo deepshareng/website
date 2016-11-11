@@ -1,0 +1,77 @@
+<!-- Docs Section -->
+<section id="documentation">
+  <div class="doc-banner">
+    <div class="container download-section">
+        <p class="download-block"><span class="download-title"> SDK 下载 </span></p>
+        <p class="download-block"><a href="{{ site.url.ios-sdk-link }}" class="download-btn ebo-white-button"><i class="icon-apple" style=""></i> iOS 下载</a></p>
+        <p class="download-block"><a href="{{ site.url.android-sdk-link }}" class="download-btn ebo-white-button"><i class="icon-android"></i> Android 下载</a></p>
+    </div>
+  </div>
+  <div class="container doc-content">
+      <div class="col-lg-3">
+        <!-- Nav tabs -->
+        <nav class="doc-sidebar">
+          <ul class="nav nav-pills nav-stacked" role="tablist">
+            {% for post in site.posts %}
+            <li role="" id = "{{ post.tab }}-tab"
+            {% if post.tab == site.posts[0].tab %} class="active" {% endif %}
+            ><a class="section-tab" href="#{{ post.tab }}" aria-controls="{{ post.tab }}" role="tab" data-toggle="tab">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Tab panel -->
+        <div class="tab-content">
+          {% for post in site.posts %}
+          <div role="tabpanel" class="tab-pane 
+          {% if post.tab == site.posts[0].tab %} active {% endif %}
+          " id="{{ post.tab }}">{{ post.content }}</div>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+
+  $(function() {
+    {% for post in site.posts %}
+      var tab = '{{ post.tab }}';
+      var subtabs = '<ul class="nav">'
+      $('#' + tab + ' h2').each(function(i, e){
+        e.id = tab + '-' + e.id;
+        subtabs += '<li><a href="#' + e.id + '">' + e.innerHTML + '</a></li>';
+      });
+      subtabs += '</ul>';
+      $('#' + tab + '-tab').append(subtabs);
+    {% endfor %}
+  });
+
+  $(window).scroll(function() {
+      var offsetY = $('.doc-content').offset().top - 20;
+      if ($(".navbar").offset().top > offsetY) {
+          $(".doc-sidebar").addClass("doc-sidebar-fixed");
+      } else {
+          $(".doc-sidebar").removeClass("doc-sidebar-fixed");
+      }
+  });
+
+  $(function() {
+    $('.doc-sidebar .nav .nav a').bind('click', function(event) {
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+          scrollTop: $($anchor.attr('href')).offset().top - 70
+      }, 1000, 'easeInOutExpo');
+      event.preventDefault();
+    });
+    $('.doc-sidebar .nav .section-tab').bind('click', function(event) {
+      $('html, body').stop().animate({
+          scrollTop: $('.doc-content').offset().top - 20
+      }, 1000, 'easeInOutExpo');
+      event.preventDefault();
+    });
+  });
+
+</script>

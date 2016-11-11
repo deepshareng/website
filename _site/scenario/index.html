@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>DeepShare - Share your App with the world</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <!-- Demo Section -->
+<section id="demo-1">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <!--
+            <div class="text-center">
+                <h1><img height=30 style="margin-right:5px; margin-top:1px;" src="/img/demo/demo-icon.png"/><span class="underline-title">应用场景</span></h1>
+            </div>
+            -->
+            <div class="demo-block">
+                <h2><img src="/img/feature4-icon.png " /> 开腔 - 热点资讯平台 </h2>
+                <p>一键参与热门讨论<br>直达兴趣内容，直接提升社区活动热度 </p>
+            </div>
+            <img width=100% src="/img/demo/demo-kaiqiang.png"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='/img/demo/qrcode-kaiqiang.png'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="demo-2" style="background-color: #f8f8f8;">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="demo-block">
+                <h2><img src="/img/feature2-icon.png " /> 听果 - 听书APP </h2>
+                <p>直达具体的音频页面<br>无需用户查找，自动下载播放分享音频 </p>
+            </div>
+            <img width=100% src="/img/demo/demo-tinguo.png"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='/img/demo/qrcode-tinguo.png'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="demo-3">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="demo-block">
+                <h2><img src="/img/feature1-icon.png " /> 墨池 - 书法社交APP </h2>
+                <p>将用户直接导向APP内容页面<br>提高用户点赞、评论的活跃度 </p>
+            </div>
+            <img width=100% src="/img/demo/demo-mochi.png"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='/img/demo/qrcode-mochi.png'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO(iOS)</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="demo-4" style="background-color: #f8f8f8;">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="demo-block">
+                <h2><img src="/img/feature3-icon.png " /> XY - 男士精选海淘电商 </h2>
+                <p>从Web分享页面点击单品后直达APP内购买页面<br> 省去搜索的流程，提高了APP中购买转化率 </p>
+            </div>
+            <img width=100% src="/img/demo/demo-xy.png"/>
+            <div class="demo-show-btn-wrapper">
+                    <a data-html="true"
+                       data-toggle="popover"
+                       data-trigger="hover"
+                       data-placement="top"
+                       data-original-title="扫描二维码体验DEMO"
+                       data-content="<img style='margin:0;width:100%;height:100%' src='/img/demo/qrcode-xy.png'>"
+                       href="javascript:;"><span class="demo-show-btn login-button ebo-blue-button">体验DEMO(iOS)</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+        $(function() {
+            $("[data-toggle='popover']").popover();
+        });
+</script>
+<!--
+<section id="demo-4" style="background-color: #f8f8f8;">
+    <div class="container">
+        <div class="col-lg-10 demo-section col-lg-offset-1">
+            <div class="text-center">
+                <h2><img src="/img/feature3-icon.png " /> XY - 男士精选海淘电商 </h2>
+                <p>从Web分享页面点击单品后直达APP内购买页面<br> 省去搜索的流程，提高了APP中购买转化率 </p>
+            </div>
+            <img width=100% src="/img/demo/demo-xy.png"/>
+        </div>
+    </div>
+</section>
+-->
+
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Linux Command</title>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <style type="text/css">
+    .btn {
+      
+      border-style:solid;
+  	  border-width:2px;
+  	  height:8vw;
+  	  font-size: 4vw;
+      font-family:PingFang SC;
+      line-height: 0;
+  	  text-align:center;
+  	  text-decoration:underline;
+    }
+    .btn-down {
+      border-style:solid;
+  	  border-width:2px;
+  	  height:8vw;
+  	  font-size: 4vw;
+      font-family:PingFang SC;
+      line-height: 0;
+  	  text-align:center;
+    }
+    .row {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4" style="margin-top:20.0%;">
+      <img src="http://7xp89t.com1.z0.glb.clouddn.com/38CCA4C77072DDC9%2Fappicon%2F20151219133424" class="img-rounded" style="height:auto; width:100%;">
+      <p class="text-center" style="font-size: 4vw; margin:auto; clear:both; margin-top:14.5%; font-family:PingFang SC">Linux 手册</p>
+    </div>
+    
+    <section>
+      <div class="row col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2" style="margin-top:5.5%;">
+        <p class="text-center" style="line-height: 6vw; font-size: 4vw; font-family:PingFang SC">全简体中文版Linux命令手册，最全命令手册！可以添加到收藏方便查阅！我爱着这个世界所有的SA。</p>
+      </div>
+    </section>
+    <section>
+      <div class="row col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3" style="margin-top:5.5%;">
+        <p class="text-center" style="font-size: 4vw; font-family:PingFang SC">命&nbsp;&nbsp;&nbsp;&nbsp;令:</p>
+        <button id="showcommand1" type="button" class="btn btn-default btn-large btn-block disabled"></button>
+      </div>
+      <div class="row col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3" style="margin-top:2.5%;">
+        <button id="openurl1" type="button" class="btn-down btn-primary btn-large btn-block ">查&nbsp;&nbsp;&nbsp;&nbsp;看</button>
+      </div>
+    </section>
+    <section>
+      <div class="row col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3" style="margin-top:5.5%;">
+        <p class="text-center" style="font-size: 4vw; font-family:PingFang SC">命&nbsp;&nbsp;&nbsp;&nbsp;令:</p>
+        <button id="showcommand2" type="button" class="btn btn-default btn-large btn-block disabled"></button>
+      </div>
+      <div class="row col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3" style="margin-top:2.5%;">
+        <button id="openurl2" type="button" class="btn-down btn-primary btn-large btn-block ">查&nbsp;&nbsp;&nbsp;&nbsp;看</button>
+      </div>
+    </section>
+  </div>
+  
+  <!--
+  <script src="http://7xp89t.com1.z0.glb.clouddn.com/deepshare_v1.2.min.js"></script>
+  -->
+  <script src="/js/DeepShare.js"></script>
+  <script type="text/javascript">
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+
+
+    // Generate by 3rd party
+    var params1 = {
+        inapp_data : {
+            name: getParameterByName('name'),
+        },
+    }
+    var params2 = {
+        inapp_data : {
+            name: 'mkdir',
+        },
+    }
+    $("#showcommand1").html(getParameterByName('name'));
+    $("#showcommand2").html('mkdir');
+
+    //setTimeout(function(){
+        // wait just to see the full log!!
+        // Entrance call
+        var deepshare = new DeepShare('38CCA4C77072DDC9');
+        deepshare.BindParams([params1, params2]);
+        $('#openurl1').click(function() {
+            deepshare.Start(0);
+        });
+        $('#openurl2').click(function() {
+            deepshare.Start(1);
+        });
+    //}, 2000);
+
+</script>
+</body>
+</html>

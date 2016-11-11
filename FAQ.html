@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<!-- FAQ Section -->
+<section id="faq">
+  <div class="faq-banner">
+    <div class="container faq-header">
+      <div class="row">
+        <h1 class="faq-title">FAQ</h1>
+        <p class="faq-desc">Helpful answers for aspiring deep linkers</p>
+        <a href="{{ site.mail.bd }}" class="ebo-button ebo-white-button">更多资讯</a>
+      </div>
+    </div>
+  </div>
+  <div class="container faq-md-header">
+    <div class="col-lg-10 col-lg-offset-1" style="padding-top:40px;">
+      <div class="text-center">
+        <h1><img height=30 style="margin-right:5px; margin-top:1px;" src="/img/faq-icon.png"/><span class="underline-title">FAQ</span></h1>
+      </div>
+    </div>
+  </div>
+  <div class="container faq-content">
+    <ol class="faq-navbar">
+    {% for qs in site.data.qas %}
+      <li class="faq-list"><a href="#{{ qs.tag }}" class="faq-q">{{ qs.question }}</a>
+          <div id="{{ qs.tag}}" class="hidden faq-a"> {{ qs.answer }} </div></li>
+    {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<script type="text/javascript">
+  $(function() {
+    $('.faq-navbar .faq-list a').bind('click', function(event) {
+      $('.faq-navbar .faq-list .faq-a').addClass('hidden');
+      $($(this).attr('href')).removeClass('hidden');
+    });
+  });
+</script>

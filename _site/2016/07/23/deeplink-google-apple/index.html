@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>苹果谷歌都醉心的深度链接（DeepLink） 将为移动营销带来六大变革！</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="DeepShare是一款基于延迟深度链接（Deferred DeepLink) 的SDK。它能减少用户使用App时的跨平台、跨页面跳转，允许Web端到App端内容的直达。帮助App开发者更好地传播App原生内容，实现用户下载量和留存率的自然增长。">
+<meta name="keywords" content="deepshare,深度链接,延迟深度链接,跨平台分享,跨平台跳转,APP,APP增长,growth hacker">
+
+<!-- Custom CSS & Bootstrap Core CSS -->
+<link rel="stylesheet" href="/style.css">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+<!-- DeepShare Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Baidu Analytics -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5d4f999c10dcfa4569f31130c44f1417";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    console.log("哎呀被发现了…");
+    console.log("害羞的机智君表示就是喜欢你这样的Coder");
+    console.log("爱代码爱生活抠细节才会让世界更美好不是么？");
+    console.log("有缘人，请狠砸自荐信到 %c rita.zhao@misingularity.io或直接联系15652268376", "color: red");
+</script>
+
+         <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script src="/js/countUp.min.js"></script>
+
+    <script type="text/javascript">
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
+        });
+
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+    </script>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+         <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="icon-th-list"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img height=30 src="/img/logo-top.png" />
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/">首页</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:;">功能&nbsp;<span
+                                class="icon-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/redirect-once">一下跳转</a></li>
+                            <li><a href="/deeplink">深度分享</a></li>
+                            <li><a href="/marketing">渠道检测</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/doc">开发者</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/price">价格</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/blog">BLOG</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="page-scroll" href="/FAQ">FAQ</a>
+                    </li>
+                    -->
+                    <li>
+                        <a class="page-scroll" href="/contact">联系我们</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="https://dashboard.deepshare.io"><span class="login-button ebo-blue-button">开始使用</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+        <div class="nav-offset" style="height: 40px"></div>
+        <div class="">
+            <div class="container">
+                <div class="blog-article-area">
+                    <div class="back-to-blog">
+                        <a href="/blog"><i class="icon  icon-chevron-left"></i>&nbsp;&nbsp;Back to Blog</a>
+                    </div>
+                    <h1 class="blog-title">苹果谷歌都醉心的深度链接（DeepLink） 将为移动营销带来六大变革！</h1>
+                    <div class="blog-article-top">
+                        <div class="blog-article-tags">
+                            
+                            <a class="btn btn-success"
+                                href="/blog/tags/deeplink">#deeplink</a>
+                            
+                        </div>
+                        <div class="blog-article-time">
+                            <span>慧岩</span> 
+                                •
+                            <span class="entry-date"><time datetime="2016-07-23T00:00:00+08:00">July 23, 2016</time></span>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div class="blog-article-body">
+                        <p>今年年谷歌 I/O 大会上，其旗下新版移动 App 开发平台 Firebase Analytics 亮相。平台的功能之一，帮助打通移动 App 信息壁垒的 Dynamic Links 和苹果的 Universal Link 以及前段时间百度发布的 AppLink 相似，实质就是打破 App 与移动 Web 之间、App 与 App 之间的壁垒的深度链接（DeepLink）。</p>
+
+<p>其实深度链接对我们而言并不陌生, 事实上我们每天都在使用。</p>
+
+<p><strong>大多数的 Web 链接都是深度链接，它能直接把用户指向内容页面。用在 App 中，可以帮助开发者为用户创造出使用 Web 一样的体验，从而提升宣传效果，降低运营难度。</strong></p>
+
+<p>最简单的场景是，当朋友给你分享电商 App 一双鞋的链接，一般来说，你打开并下载完 App 后会被引导至 App 的首页，然后花上好一会儿时间搜索查找才能找到同一双。可是如果 App 包含了深度链接，那么你<strong>下载完打开 App 的一瞬间就能直接到达这双鞋的页面，无需再次搜索。</strong></p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-001.jpg" style="max-width:80%;min-width:320px" />
+</div>
+
+<p><strong>用户在 App 内的使用体验不仅直接影响 App 的下载和活跃程度，还关系到 App 入驻商户的利益。</strong></p>
+
+<p>不得不说，在“ 智能手机用户大约 80% 的时间花在 App ” 的时代，深度链接在移动领域的发展有很大潜力。
+就目前的需求而言，这种技术的运用能为目前国内市场的移动营销领域带来至少六大变革。</p>
+
+<h2 id="section">六大变革</h2>
+
+<p>说起移动营销，为了扩大产品的知名度，并把流量变现，有很多种做法：商家主动让利的分享邀请，各种线上活动的促销，和关联产品的换量推广，传统的短信和邮件营销还有想尽办法把商品信息传给各大搜索引擎和 DSP 广告投放。
+这些方法在奏效的同时往往带来的也是巨大的财务负担。你总得舍得花钱才能换来可观的流量。
+但是公司的预算和人力毕竟有限，<strong>如果能依靠技术的力量「 把大家都玩烂了的宣传手段效益最大」，就能给宣传和市场更大的发挥空间。</strong></p>
+
+<p>相信以下这几大技术导向的变革能带给你新的灵感。</p>
+
+<h3 id="section-1">变革一：分享激励告别繁琐的邀请码</h3>
+
+<p>谈到分享激励，Uber 和 Airbnb 算是行业典范。</p>
+
+<p>比如 Uber，会为你生成了一个专属的邀请码，在你每次邀请新朋友使用 Uber 时，你们两个人都会获得 30 元的乘车优惠券。邀请越多朋友，你就会获得越多的优惠券。这样的玩法虽然在提高传播效率、促进用户增长方面有不错的效果，但也面临着不小的困难。</p>
+
+<p>对于 App 开发者而言，如何把「分享者 - 分享受众转化成的新用户」这一组关系匹配上，是一个大的难题。目前采用以上玩法的 App 开发者主要以两种形式统计参与用户和分发优惠券，一种是个人账号信息匹配，另一种则是像 Uber 一样，通过优惠码来匹配。但这两种方式都有不小的问题：</p>
+
+<ul>
+  <li>
+    <p><strong>系统开发成本高</strong>
+无论是账号匹配系统，还是优惠码匹配系统，App 开发者都需要做专门的开发和接口来维护和匹配这庞大的数据系统。尤其是对于中小型的 App 开发者而言，这样的开发量就很「鸡肋」，<strong>投入大量人力、时间、服务器资源去开发和维护这么一套庞大的系统，似乎并不划算。</strong></p>
+  </li>
+  <li>
+    <p><strong>匹配流程长，传播效果大打折扣</strong>
+以账户为主的匹配系统，需要新用户在回流时就注册登录；而优惠码为匹配元素的匹配方式，则需要用户记住优惠码并去相应的页面数据。这两种方式实际上都为新用户的转化过程增添了流程和障碍。而我们都知道，<strong>在用户体验上每多一个步骤，就一定会产生流失用户</strong>。那么，当纷繁的领取流程让用户的转化流程变得异常长的时候，返利营销的实际效果，也就需要再打一个问号了。</p>
+  </li>
+</ul>
+
+<h4 id="section-2">深度链接的出现打破这一尴尬的局面</h4>
+
+<p><strong>运用深度链接技术能有效实现从 H5 页面到 App 端的匹配。可以知道哪个页面是谁分享出来的，谁又是通过这个页面点击回到 App 的，而不再需要通过账号或者优惠码来做出匹配。</strong></p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-002.png" style="max-width:80%;min-width:320px" />
+</div>
+
+<ul>
+  <li>
+    <p>从用户角度来讲，不再需要繁琐的「注册/输入兑换码」的过程，即可直接获取到优惠，转化率和留存率大大提高；</p>
+  </li>
+  <li>
+    <p>对于 App 开发者而言，不需要再进行账号匹配系统或者优惠码匹配系统的开发和维护，省了不少的时间、精力、资源来做更重要的事儿。</p>
+  </li>
+  <li>
+    <p>对于商家而言，分享返利导流效果更佳。</p>
+  </li>
+</ul>
+
+<h3 id="section-3">变革二：线上活动流量变现</h3>
+
+<p>App 端的线上活动不同于 Web 端的线上活动，这样的不同来自于 App 结构本身的一些缺陷。Web 端的用户只需要点击对应的链接就可以直达对应的活动内容页的消费流程，而在 App 端的用户则必须下载 App 并在 App 进行搜索才能接触到线上活动的内容。这样的差异让我们不得不从新的角度来看待一个 App 端的线上活动。从用户的角度来讲，有两个纬度是最重要的：</p>
+
+<h4 id="section-4">一. 活动本身对用户的吸引力</h4>
+<p>这一部分主要涉及到市场营销的创意和执行，同时和各个 App 的领域高度相关，在此不予赘述。</p>
+
+<h4 id="section-5">二. 用户到达活动的难易程度</h4>
+<p>第二点往往也是被忽视的一点。事实上，即使一个非常有吸引力的活动，用户也会因为到达活动难度太大而放弃，比如微信的 H5 分享页 :2015 年的《微信H5分享页用户行为数据分析》中指出，用户流失量最大的地方是 5 到 6 页，也就意味着用户在 H5 页上面浏览信息的耐心只有 5 到 6 页。同样的，在 App 端的活动页，如果用户需要 5 到 6 次的点击才能到达的话，大多数用户就已经失去耐心，放弃该活动了。</p>
+
+<h4 id="section-6">深度链接是线上活动流量转化的有效解决方案。</h4>
+<p>简书 App 就是一个非常好的例子。
+「短短 2 周内，获得了超过 30 万次的访问，接受近 5000 篇投稿」「预计总投稿字数超过 1000 万字」「仅以字数算，这可能是中文世界最大的一次 UGC」，这些好看的数据来自于简书 App 在五月启动的「神转折大赛」。而在这样巨大的流量面前，简书 App 采用深度链接技术让大量的流量转化为了 APP 的活跃用户。</p>
+
+<p><strong>用户可以直接从 H5 分享页跳转到 App 内对应页面</strong>，也就是说，从外部内容到 App 里对应内容的过程只需要 1 步，根本就没有失去耐心的机会 —— 用户还没有回过神来，就已经直接到达了达 App 中对应的内容。</p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-003.jpg" style="max-width:80%;min-width:320px" />
+</div>
+
+<p>更有意思的是，简书手机网页端只能会让用户看到一部分的评论，但同时看不到全部的评论，也无法写评论。这些相对「高级」的功能只有在 App 端才能体验到。评论是一个用户生产内容社区不可分割的一部分，且用户已经能在网页版看到了部分评论，这样在无形中增加了用户去 App 端评论的动力，同时 深度链接将用户到达内容的难度降到最低。</p>
+
+<p>而如今，有越来越多的 App 利用深度链接技术在改善用户体验，如一点资讯、才米公社、她理财等。这些 App 将这样的功能作为基础配置，将基础功能放在外部传播页面，而将「高级」功能，或者说是用户吸引力较大的一部分功能则被放入了 App 内部。</p>
+
+<p><strong>这样，不仅仅是线上活动，外部传播的每一个界面都成为了 App 导量的入口。</strong></p>
+
+<h3 id="section-7">变革三：换量推广高效可监测</h3>
+
+<p>换量，顾名思义， App 间交换流量，以实现各自的用户增长。具体形式非常多样化，感觉只要能把流量导进自己的 App ，没有什么是不可能的。</p>
+
+<p>但是在实际操作过程中，换量的双方会面临以下几个难点：</p>
+
+<ul>
+  <li>
+    <p><strong>换量渠道数据监测难</strong>
+虽然在换量之前双方就换量比例已经达成一致，但是实际过程中怎么监测具体跳转的量是一个让人十分头疼的问题。
+即使双方都可以在自己的后台上监测基本的渠道数据，要想知道自己的广告 banner 在对方平台的点击量，或者进一步的下载激活量，需要对方提供具体流量数据，自己无法监测。同理，对方也需要向跟你沟通才能得到相应的数据。这种情况下双方很容易因为沟通不畅导致各种问题。
+再严重点，如果有一方本身心存侥幸，谎报数据骗量，另一方明知有问题也拿不出具体的证据，只能出力不讨好，坐吃哑巴亏。</p>
+  </li>
+  <li>
+    <p><strong>获得好的换量效果难</strong>
+除了换量过程中的信息不对等问题，一些换量方式本身就有近一步优化的必要。
+尤其是以关联内容换量的 App ，虽然最初的目的是以优质的内容吸引目标客户，但是在实际操作过程中并没有达到应有的成效。
+站在用户角度想，<strong>如果能直接从推广界面跳转到 App 内相应的小说界面，他能直接开始阅读，收藏，分享给别人，体验会有极大的提升，这次换量就能真正依靠内容取胜。</strong></p>
+  </li>
+</ul>
+
+<h4 id="app-">深度链接协助 App 优雅换量</h4>
+
+<p><strong>通过一些具有深度链接技术的第三方科技公司的数据后台，换量双方可以实时查看放在对方 App 中每一个广告位的导流情况，换量的效果统计就会更精准</strong>。再也不用隔三差五跟对方要数据还担心是否真实准确，也不用饱受对方索要数据的打扰。</p>
+
+<p>同时，深度链接技术还能实现 App 间内容一键跳转，完善用户体验，提升换量效果。</p>
+
+<p><strong>举个栗子来说：</strong></p>
+
+<p>Instacart 是一家提供线上杂货递送服务的公司。
+Instacart 发现他们的很多用户在同时使用一个食谱 App ：Yummly 。于是，他们决定和 Yummly 合作，使得用户能在 Instacart 平台上预定食材。</p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-004.jpg" style="max-width:80%;min-width:320px" />
+</div>
+
+<p>Yummly 的开发团队使用深度链接技术来解决这个问题，他们在 App 内放入一个指向 Instacart App 的链接，能够将其特定的食材数据传递给 Instacart；这使得用户在下载完 Instacart 之后，其购物车就能自动加入对应的食材。这给了新用户一个非常好的体验，同时也能根据链接追踪到流量渠道的对应变化，以便于Instacart 对 Yummly 贡献的下载和预定服务数量给予报酬。</p>
+
+<p>当然 App 间跳转绝不仅仅局限于两个 App 之间，开动脑筋，我们可以实现这样的应用场景接龙：</p>
+
+<ul>
+  <li>
+    <p>在优酷 App 看预告片然后被提示打开的豆瓣 App 看影评；</p>
+  </li>
+  <li>
+    <p>豆瓣 App 中直接打开猫眼 App 买电影票；
+猫眼的 App 中打开百度地图 App 查看附近影院；</p>
+  </li>
+  <li>
+    <p>百度地图 App 中接着打开 Uber App 打车到指定影院；</p>
+  </li>
+  <li>
+    <p>到了影院在付打车费的时候打车 App 提示打开美团 App 购买爆米花套餐…</p>
+  </li>
+</ul>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-005.jpg" style="max-width:80%;min-width:320px" />
+</div>
+
+<p>一个本想看预告片的人最后竟在不知不觉间被引导到购买爆米花套餐。<strong>深度链接能让 App 间的换量出现更多可能，也能为参与换量的双方甚至多方导入更多优质的流量。</strong></p>
+
+<h3 id="section-8">变革四：短信/ 邮件营销更有效</h3>
+
+<p>因为短信本身的封闭性社交特性，同时诈骗短信和垃圾短信横行，再加上在 OTT （Over The Top，是指通过互联网向用户提供各种应用服务）业务的冲击下，近年来传统的短信业务用量迅速下滑，但是并不意味着短信营销完全没有效果。
+下图为近几年中国短信使用量</p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-006.png" style="max-width:80%;min-width:320px" />
+</div>
+
+<p>虽然是处于一个迅速下降的过程，但是目前使用量仍然很大的，而且，冲击最强的时间应该就是在 OTT 普及的前几年，之后短信的使用量的下降趋势就会明显减慢。而且，短信使用量的下降其实主要是个人使用频次降低了，用户量并没有减少多少，所以这个目标客户的数量还是很可观的。</p>
+
+<p>而且，在 15 年 6 月「短信息管理规定」出台实行后，诈骗短信和垃圾短信是在逐渐减少的，因而我们可以预料到，这之后的一段时间，之前造成的不良影响也会慢慢减弱。</p>
+
+<p>所以目前最大的问题其实是由短信的封闭性造成的，如何打通短信与其他手机 App之间的壁垒（或者说怎么让用户从短信直达你家 App），成为挽救短信营销的重中之重。</p>
+
+<h4 id="section-9">深度链接让短信／邮件营销更直接有效。</h4>
+
+<p>如果能在短信营销中使用嵌入了深度链接的链接， 就能实现通过传统的 HTTPS 链接来启动 App，并保持 App 与 Web 间的内容链接。邮件营销同理。</p>
+
+<p><strong>这个链接的特殊之处在于：当用户从短信或者邮件中打开之后，不管他们是否已经下载了App，它都将用户直接导向 App 内部相应的产品、优惠券或者活动界面。</strong> 这是一个非常美好的体验，尤其是对于已经注册的用户。美国最大深度链接供应商 Branch Metrics 的研究表明，<strong>使用深度链接能让注册用户变成活跃用户的概率变成原来的2.1倍。</strong></p>
+
+<p><strong>所以我们其实没有必要放弃短信这个能直达用户的渠道，因为现在有深度链接这样的技术在颠覆移动营销。</strong></p>
+
+<h3 id="app--web-">变革五：App 在 Web 搜索引擎上的曝光更多</h3>
+
+<p>互联网时代，寻求在搜索引擎检索结果有利位置的曝光是产品宣传的新方法。</p>
+
+<p>Web 页面之间可以用一个一个链接关联起来，用户的使用成本只是一次点击和几秒等待，所以 Web 信息在搜索结果中可以得到很好的展示。相较于 Web，App 的内容比较封闭，无法在结果中被展示出来，所以很难把流量以内容关键词的形式引入到 App 内。</p>
+
+<p>所以大多数情况下，App 厂商只是以二维码和内容简介的形式来试图从 Web 端导入少许流量。</p>
+
+<p>这样简单粗暴的方式存在的问题在于：</p>
+
+<ul>
+  <li>
+    <p><strong>在搜索引擎的曝光度低</strong>
+简单的内容介绍很难覆盖到所有页面相关的关键词，白白损失掉一批本来有意下载的潜在用户。</p>
+  </li>
+  <li>
+    <p><strong>用户没有足够的下载驱动力</strong>
+如果不是特别有名的 App, 用户在仅仅看到简介和截图的情况下并没有足够的动力下载 App 继续浏览。</p>
+  </li>
+  <li>
+    <p><strong>用户下载 App 后完成目标的成本高</strong>
+即使因为搜索「 北京到斐济旅游 」下载了某旅游攻略的 App，用户在打开后看到的是首页，还需要自己去再次搜索和比对，过程繁复，完成目标的成本高。
+很多用户因此宁愿换成电脑端在网页直接操作也不愿意下载 App。</p>
+  </li>
+</ul>
+
+<p><strong>在这种情况下，如果你的 App 能做一些技术上的升级，就能有比同行更大的机会获取新用户，提升老用户的活跃度。</strong></p>
+
+<h4 id="app--1">深度链接帮助 App 提升在搜索引擎上的曝光</h4>
+
+<p>电商类，内容分享型 App 使用深度链接，就能把自己 App 内的所有内容曝光在搜索引擎的相关结果中。同时用户在点击链接的时候，可以看到跟关键词相关的 App 内容的预览界面，从而有更大动力下载 App 查看全部内容。下载 App 之后，打开的一瞬间用户可以直接看到刚才搜索的「 北京到斐济旅游」在 App 内的展示结果，使用体验极佳。</p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/deeplink-google-apple-007.png" style="max-width:80%;min-width:320px" />
+</div>
+
+<p>也就是说<strong>你的所有商品信息都能够被搜索引擎自动检索到，导流更加容易，再也不用饱受 App 信息闭锁的苦</strong>。</p>
+
+<p><strong>当然这件事关系的除了用户和 App 自身，还有搜索引擎服务商</strong>。谷歌全力支持 App Indexing 就是希望能够依靠深度链接技术触及所有应用内部的数据，以使自己的搜索引擎变得更加强大和智能化。苹果手机内置的搜索功能 spotlight 也能检索到本地 App 内容，当然前提是你的 App 包含了深度链接。</p>
+
+<p>可以说，深度链接在 App 内的应用是 App 逐步走向开放的必经之路。</p>
+
+<h3 id="app--dsp-">变革六：App 的 DSP 广告投放更精准有效</h3>
+
+<p>随着互联网的发展，DSP（Demand-Side Platform），即需求方平台的广告投放方式越来越得到各个广告主的青睐。</p>
+
+<p>和传统的广告网络不同，DSP 不是从网络媒体那里包买广告位，也不是采用 CPD (Cost Per Download) 的方式获得广告位；而是从广告交易平台来通过实时竞价的方式获得对广告进行曝光的机会。</p>
+
+<p>由此来看，一个真正意义的 DSP，必须拥有两个核心特征：拥有强大实时竞价的基础设施和能力，以及先进的用户定向技术。前者对于 DSP 平台数据运算技术和速度非常高，而后者，即用户定向，得依赖于<strong>作为广告主的 App 是否内置了最新的深度链接技术</strong>。</p>
+
+<h4 id="app--2">深度链接帮助 App 实现新用户的导流和老用户的回流</h4>
+
+<p><strong>首先是新用户的导流</strong>。通过深度链接广告页面，用户可以通过单次点击 “一键式” 直达 XY 的购买页面，省去中间多次跳转环节，大幅度降低了用户流失，提升广告投放的转化率。</p>
+
+<p><strong>其次是老用户的回流</strong>。深度链接通过对 App 应用内广告的曝光、点击及后续转化，经统一的设备 ID 来标示用户的完整行为，并长期持续跟踪，将老访客最感兴趣的，也是购买行为可能性最高的商品以动态创意方式进行广告投放，吸引老客回流。</p>
+
+<p>因此，深度链接已经逐渐DSP广告投放的标配，开创了移动智能推荐的新纪元。</p>
+
+<h2 id="deeplink">国内外深度链接（DeepLink）的发展情况</h2>
+
+<p>针对 App 与 Web 和 App 之间的壁垒问题，行业内不断有企业尝试给出更优秀的解决方案。
+除了开头提及的谷歌苹果百度等这些国内外科技巨头之外，一些近些年兴起的专注深度链接的企业同样让人印象深刻。首先看国外，硅谷公司 Branch Metrics 从 2014 年起就潜心做深度链接相关的 Saas 服务，虽然团队只有 60 人，但是合作伙伴已经高达 6000 个。同样值得关注的还有移动 App 搜索公司 Quixey ，自2009年以来，共募集了1.34亿美元，包括最新获得阿里巴巴领投5000万美元的C轮融资。</p>
+
+<p><strong>国内的 App 市场也开始逐渐意识到打破这种壁垒的必要性</strong>。大公司包括淘宝，大众点评等依靠自己的团队就能开发出相当稳定的深度链接为产品服务，其他的公司如果有这样的需求，可以考虑市面上出现的几家初展头脚的科技创业企业。</p>
+
+<h2 id="deeplink-1">深度链接（DeepLink）未来的发展导向</h2>
+
+<p>按照互联网的开放性质，App 的封闭状态迟早会被彻底打破，而深度链接的最终目标就是使 App 和 Web 一样是能够相互连接的。<strong>用户可以从外边直接到达 App 里面任何一个内容或功能，不需要再了解整个菜单系统。这样的话可以比较有效的达到病毒式自然增长</strong>。</p>
+
+<p>这件事情对很多不是特别熟练 App 的，不是拿着小屏幕长大的用户群体而言，是非常重要的体验。用户不用记怎么使用这个 App，给他一个链接, 他只需要跟着这个链接，最后就能到他想要去的地方。</p>
+
+<p>到了那个阶段，<strong>Web 和 App 在操作上其实已经没有本质的区别，移动营销将会迎来彻底的变革</strong>。</p>
+
+<p>作者：任慧岩（微信号：huiyan258240），DeepShare 奇点深享市场推广负责人。</p>
+
+<div style="text-align:center;width:100%;margin:5rem 0;">  
+    <img src="https://ds-static.fds.so/image/blog/dsgif800.gif" style="max-width:80%;min-width:320px" />
+</div>
+
+                    </div>
+                </div>
+
+                <hr>
+                <div class="blog-main-wrapper text-center">
+                    <nav class="pagination" role="navigation">
+                    
+                          <a href="/2016/07/15/exchange/" class="btn" title="App 换量总是事倍功半？ 这样做，靠谱！">上一篇</a>
+                    
+                    
+                          <a href="/2016/08/09/dsp/" class="btn" title="如何高效如何高效利用移动互联网DSP广告为APP增加流量">下一篇</a>
+                    
+                    </nav>
+                </div>
+            </div>
+        </div>
+            <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        	<div class="footer-section">
+	            <div>
+	            	<img src="/img/logo-footer.png" />
+	            	<p><br>2016 &copy; 北京奇点深享信息技术有限公司<br>皖ICP备15023152号</p>
+	            </div>
+	        </div>
+        </div>
+    </footer>
+
+    </body>
+</html>
